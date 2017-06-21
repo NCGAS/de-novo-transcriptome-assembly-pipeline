@@ -1,4 +1,9 @@
 #!/bin/bash
+### For running Soap-trans on Mason
+
+### The following script is for generating many job scripts/qsub scripts at once in order to get the best job throughput possible on Mason.
+#   Always try to request the minimum amount of job resource for your particular input file(s)
+#   This will ensure your job can squeaze into the tiniest cracks on the scheduler left when bigger jobs are placed!
 
 ### Change the config parameters for Soap-Trans here
 #   Definitely check the q line and change to q1= and q2= if you have paired reads
