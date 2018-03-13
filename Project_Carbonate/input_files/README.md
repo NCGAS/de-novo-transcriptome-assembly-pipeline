@@ -25,7 +25,11 @@ cat file4_read2.fq >> right.fq
 ```
 __MAKE SURE YOU USE ">>" and not ">" - you will lose data if you use only one arrow!!!__
 
-Then, run the RunTrinity.normalization.sh script.  
-This will output two files to this directory, left-norm.fq and right-norm.fq.  
-These will be used for all downstream analyses.  
+- Then, run the RunTrinity.normalization.sh script. 
+
+`bash RunTrinity.normalization.sh`
+
+- This will output two files to this directory, left-norm.fq and right-norm.fq.  
+- These will be used for all downstream analyses.  
+
 Using normalization reduces time, resources, etc without any real loss of information.
