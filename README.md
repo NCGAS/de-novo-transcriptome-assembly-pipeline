@@ -1,11 +1,11 @@
-# *de novo* transcriptome assembly pipeline
+# *de novo* transcriptome assembly pipeline #
 
-The pipeline is currently set up for SLURM and TORQUE job handlers, with current set up being for IU Carbonate Cluster and PSC Bridges.  If you want to run this on your own hardware, we can help you convert the scripts to run on your machine.
+- The pipeline is currently set up for SLURM and TORQUE job handlers, with current set up being for IU Carbonate Cluster and PSC Bridges.  If you want to run this on your own hardware, we can help you convert the scripts to run on your machine.
 READ THE READMEs.  There are READMEs in every folder.
 
-*There are two commands you must run first that are in that file.  The first will set the email address so that you get notification when the jobs are done.  The second will set the current directory as the working directory for the project.
+- There are two commands you must run first that are in that file.  The first will set the email address so that you get notification when the jobs are done.  The second will set the current directory as the working directory for the project.
 
-*Place your input in the input_sequences folder.  These should be trimmed and quality controlled sequences.  This pipeline does not deal with that step, as it is very context and project dependent.  Concatonate all your left reads into one file called left.fq; combine your right reads into right.fq.
+Place your input in the input_sequences folder.  These should be trimmed and quality controlled sequences.  This pipeline does not deal with that step, as it is very context and project dependent.  Concatonate all your left reads into one file called left.fq; combine your right reads into right.fq.
 
 For each assembler folder, run each set of steps.  If there are run files with the same prefix number (e.g. 1a and 1b), these can be run concurrently.  Simply submit both with qsub.  See README in each file for more information.
 
