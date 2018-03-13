@@ -1,0 +1,24 @@
+You will need to combine all your read files into left.fq and right.fq, as these are going to be the input files for the assemblers.  These can be trimmed reads, or if you feel confident (run fastqc), untrimmed reads.
+
+An easy way to do this is to put all the files in this input_files directory, then run:
+cat *_1.fq >> left.fq
+cat *_2.fq >> right.fq
+
+(assuming you left reads are all files that end in _1.fq, etc.)
+
+If this is not the case, you can simply go through each file, IN A SET ORDER:
+cat file1_read1.fq >> left.fq
+cat file2_read1.fq >> left.fq
+cat file3_read1.fq >> left.fq
+cat file4_read1.fq >> left.fq
+
+and the same for right:
+cat file1_read2.fq >> right.fq
+cat file2_read2.fq >> right.fq
+cat file3_read2.fq >> right.fq
+cat file4_read2.fq >> right.fq
+
+MAKE SURE YOU USE ">>" and not ">" - you will lose data if you use only one arrow!!!
+
+Then, run the RunTrinity.normalization.sh script.  This will output two files to this directory, left-norm.fq and right-norm.fq.  These will be used for all downstream analyses.  Using normalization reduces time, resources, etc without any real loss of information.
+

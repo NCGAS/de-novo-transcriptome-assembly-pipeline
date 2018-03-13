@@ -1,0 +1,27 @@
+Once you have completed all the assemblies in the top folder (Trinity, TransAbyss, Velvet, and SOAP), and you have run the ./Combine.sh script in each, you will see a file here with the assembly name, i.e. Trinity.fa.
+
+Now, run ./Combine.sh FIRST - this will put all the assemblies together to be run through Evigenes.
+After you get a "combined.fa" file, run RunEvigenes.sh.
+
+This will give you several output folders:
+inputset:	This is a breakdown of the file you input, as a fa, cds, and aa translation
+okayset:	This includes two major sets: *.okay.* and *.okalt.*.  The okay files are the longest ("best") single version of a transcript.  Transcripts that are similar but not identical are stored in the okalt (alternative forms).  You can find the link between the two - see the documentation for evigenes at http://arthropods.eugenes.org/genes2/about/EvidentialGene_trassembly_pipe.html or email help@ncgas.org
+dropset:	This is a set of transcripts that were dropped for variaous reasons (each is labeled as to why) - they were perfect duplicates, they lacked the apparence of real transcripts (no cds), etc.  See documentation for descriptions!
+
+Typically, the *.okay.* set is a good putative, filtered transcriptome for you to start with.  It aims to have one representative per loci, which is ideal for mapping/DE/etc.  DO continue with QC.
+
+Ideas or QC:
+Quality stat programs (quast is painless):
+	N50 
+	Transcript length – what are you expectations?
+	Gene/isoform ratio – what are your expectations?
+	Length metrics - > 1000bp, >5000 bp, >25,000bps
+
+Correctness
+	Blast to a similar organism
+	GC – does this match expected?
+
+Completeness
+	BUSCO – works on transcriptomes too!
+	Blast to a similar organism (how much overlap?)
+
