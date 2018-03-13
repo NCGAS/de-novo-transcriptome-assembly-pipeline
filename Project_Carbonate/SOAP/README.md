@@ -1,0 +1,6 @@
+### SOAP ###
+You can run SOAP as described in the main README 
+- run the 1 and 1b together,
+- then ./Combine.sh after they have finished!
+
+If you have a different insert length than standard (~100bp), please edit the config file with that information.
