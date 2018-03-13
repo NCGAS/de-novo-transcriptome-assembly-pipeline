@@ -1,7 +1,7 @@
 # *de novo* transcriptome assembly pipeline #
 
 This pipeline combines multiple assemblers and multiple paramters using the combined *de novo* transcriptome assembly pipelines. For more information, goto https://ncgas.org/WelcomeBasket_Pipeline.php
-If you have any other questions, contact us at [ help@ncgas.org ]
+If you have any other questions, contact the [NCGAS team] (help@ncgas.org)
 
 - The pipeline is currently set up for SLURM and TORQUE job handlers, with current set up being for IU Carbonate Cluster and PSC Bridges.  If you want to run this on your own hardware, we can help you convert the scripts to run on your machine.
 READ THE READMEs.  There are READMEs in every folder.
