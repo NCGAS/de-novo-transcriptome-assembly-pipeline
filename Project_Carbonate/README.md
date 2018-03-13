@@ -64,4 +64,4 @@ within okayset, you will set two sets of files:
 	okalt.fa/aa/cds - these are the alternative versions of the transcripts in the okay file (alleles, isoforms, etc).
 		anything labeled "complete" is a full cds.
 
-SEE http://arthropods.eugenes.org/EvidentialGene/trassembly.html for documentaiton!
+SEE http://arthropods.eugenes.org/EvidentialGene/trassembly.html for documentation!
