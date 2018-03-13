@@ -45,9 +45,9 @@ Any step that is followed by a "b", etc. (RunVelvet2b.sh or Step 2b) can be run 
   - dropset - where dropped files are
 
 within okayset, you will set two sets of files:
-    - okay.fa/aa/cds - these are the highest quality transcripts 
-                       anything labeled "complete" is a full cds 
-    - okalt.fa/aa/cds- these are the alternative versions of the transcripts in the okay file (alleles, isoforms, etc).
-                       anything labeled "complete" is a full cds.
+- okay.fa/aa/cds - these are the highest quality transcripts 
+  - anything labeled "complete" is a full cds 
+- okalt.fa/aa/cds- these are the alternative versions of the transcripts in the okay file (alleles, isoforms, etc).
+  - anything labeled "complete" is a full cds.
 
 SEE http://arthropods.eugenes.org/EvidentialGene/trassembly.html for documentaiton!
