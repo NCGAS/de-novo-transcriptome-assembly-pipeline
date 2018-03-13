@@ -1,4 +1,7 @@
-Once you have completed all the assemblies in the top folder (Trinity, TransAbyss, Velvet, and SOAP), and you have run the ./Combine.sh script in each, you will see a file here with the assembly name, i.e. Trinity.fa.
+### Final step ###
+
+Once you have completed all the assemblies in the top folder (Trinity, TransAbyss, Velvet, and SOAP), and you have run 
+the ./Combine.sh script in each, you will see a file here with the assembly name, i.e. Trinity.fa.
 
 Now, run ./Combine.sh FIRST - this will put all the assemblies together to be run through Evigenes.
 After you get a "combined.fa" file, run RunEvigenes.sh.
