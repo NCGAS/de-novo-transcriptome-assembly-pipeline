@@ -1,2 +1,3 @@
+### SOAP ###
 Need to change the config file with your path
 Need to change the config file with your insert length
