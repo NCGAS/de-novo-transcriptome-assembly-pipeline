@@ -3,10 +3,12 @@
 Any step that is followed by a "b", etc. (RunVelvet2b.sh or Step 2b) can be run at the same time as the matching number (RunVelvet.sh or Step2).
 
 - Step 0: You need to put your email as the point of contact for all the scripts.  This can be done en masse with the following command   (replace youremail@wherever.com with your actual email) from the Project directory:
+  
   `for f in */Run*; do sed -i 's/YOUREMAILHERE/youremail@wherever.com/g' $f; done`
 
   You will also need to map your project directory to the run files.  To do this, run the following from the Project directory:
-  `for f in */*; do p=`pwd`; sed -i "s|PWDHERE|$p|g" $f ; done`
+  
+  `for f in */*; do p=``pwd``; sed -i "s|PWDHERE|$p|g" $f ; done`
 
 - Step 1:
   Put all your reads into input_files
