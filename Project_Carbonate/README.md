@@ -1,3 +1,5 @@
+# Transcriptome assembly pipeline for Indiana University's Carbonate cluster or Torque Job scheduler #
+
 Any step that is followed by a "b", etc. (RunVelvet2b.sh or Step 2b) can be run at the same time as the matching number (RunVelvet.sh or Step2).
 
 Step 0:
