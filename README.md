@@ -17,10 +17,10 @@ READ THE READMEs.  There are READMEs in every folder.
 
 - After all assemblers are done and there are <ASSEMBLER>.fa files for each in the final_assemblies files, run the final_assemblers/Combine.sh first, then run RunEvigenes.  See the README for details on the output and next steps.
 
-### Indiana University Machine (Torque job handler)###
+### Indiana University Machine (Torque job handler) ###
 Project Carbonate v1- original scripts as described at PAG 2018
 Project Carbonate v2 - added updated transabyss (2.0) and defaulted everything everything to run on normalized files, added normalization script to input_files
 
-### Pittsburgh Supercomputing Center's Bridges system (SLURM job handler)###
+### Pittsburgh Supercomputing Center's Bridges system (SLURM job handler) ###
 Project Bridges v1- original scripts as described at PAG 2018
 Project Bridges v2 - added updated transabyss (2.0) and defaulted everything everything to run on normalized files, added normalization script to input_files
