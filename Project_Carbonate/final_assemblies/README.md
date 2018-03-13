@@ -15,16 +15,16 @@ Typically, the *.okay.* set is a good putative, filtered transcriptome for you t
 
 Ideas or QC:
 - Quality stat programs (quast is painless):
-        N50 
-        Transcript length – what are you expectations?
-	Gene/isoform ratio – what are your expectations?
-	Length metrics - > 1000bp, >5000 bp, >25,000bps
+  - N50 
+  - Transcript length – what are you expectations?
+  - Gene/isoform ratio – what are your expectations?
+  - Length metrics - > 1000bp, >5000 bp, >25,000bps
 
 - Correctness
-	Blast to a similar organism
-	GC – does this match expected?
+  - Blast to a similar organism
+  - GC – does this match expected?
 
 - Completeness
-	BUSCO – works on transcriptomes too!
-	Blast to a similar organism (how much overlap?)
+   - BUSCO – works on transcriptomes too!
+   - Blast to a similar organism (how much overlap?)
 
