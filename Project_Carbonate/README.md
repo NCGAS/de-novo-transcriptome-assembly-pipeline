@@ -1,4 +1,4 @@
-# Transcriptome assembly pipeline for Indiana University's Carbonate cluster or Torque Job scheduler #
+# Indiana University's Carbonate cluster or Torque Job scheduler #
 
 - Any step that is followed by a "b", etc. (RunVelvet2b.sh or Step 2b) can be run at the same time as the matching number (RunVelvet.sh or Step2).
 
@@ -20,22 +20,27 @@ Then run the normalization command - this will normalize your data and make it t
 - Step 2: SOAP
 Run RunSOAP1.sh and RunSOAP1b.sh at the same time.
 `qsub RunSOAP1*`
+
 When they finish, run ./Combine.sh
 `./Combine.sh`
 
 - Step 2b: Velvet
 Run RunVelvet1.sh and RunVelvet1b.sh at the same time.  
 `qsub RunVelvet1*`
+
 When BOTH above are complete, run RunVelvet2.sh and RunVelvet2b.sh at the same time.  
 `qsub RunVelvet2*`
+
 When BOTH above are complete, run RunVelvet3.sh and RunVelvet3b.sh at the same time.  When they finish, run ./Combine.sh (no need to submit to queue).
 `qsub RunVelvet3*`
+
 When they finish, run ./Combine.sh
 `./Combine.sh`
 
 - Step 2c: TransAbyss
 Run RunTransAb1.sh and RunTransAb1b.sh at the same time.
 `qsub RunTransAbyss1*`
+
 When they finish, run ./Combine.sh
 `./Combine.sh`
 
