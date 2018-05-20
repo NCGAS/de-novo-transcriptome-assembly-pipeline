@@ -12,7 +12,7 @@
 set -x
 
 ##Move to correct WD
-cd PWDHERE/Trinity
+cd PWDHERE/input_files
 
 #module loads 
 module load bowtie
@@ -25,6 +25,6 @@ export right=PWDHERE/input_files/right.fq
 export left=PWDHERE/input_files/left.fq
 
 /opt/packages/trinity/2.4.0/util/insilico_read_normalization.pl --seqType fq -JM 100G --max_cov 30 --left $left --right $right --pairs_together --PARALLEL_STATS --CPU 16
-ln -s PWDHERE/Trinity/trinity_out_dir/insilico_read_normalization/left-norm.fq PWDHERE/input_files/left-norm.fq
-ln -s PWDHERE/Trinity/trinity_out_dir/insilico_read_normalization/right-norm.fq PWDHERE/input_files/right-norm.fq
+ln -s PWDHERE/input_files/left.norm.fq PWDHERE/input_files/left-norm.fq
+ln -s PWDHERE/input_files/right.norm.fq PWDHERE/input_files/right-norm.fq
 

@@ -8,7 +8,6 @@
 cd PWDHERE/Velvet
 
 ##load modules
-module load python/2.7.3
 module load velvet/1.2.10
 module load oases/0.2.09
 

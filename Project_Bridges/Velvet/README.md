@@ -1,5 +1,0 @@
-### Velvet ###
-- As stated in the top level README, you can run the 1s together, then the 2s, then the 3s.  
-- You MUST wait for 1 to finish before launching 2, or 3.
-- After you are done, run ./Combine.sh
-

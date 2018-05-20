@@ -5,6 +5,7 @@
 #PBS -l nodes=1:ppn=4,vmem=300gb,walltime=00:12:00:00
 
 module load evigene/gnu/2013.07.27
+module load blast 
 
 export BLASTDV=/N/soft/blastdb
 
