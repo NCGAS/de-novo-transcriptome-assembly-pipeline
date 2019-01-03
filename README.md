@@ -1,3 +1,6 @@
+de novo transcriptome assembly pipeline
+=============================================
+
 - The pipeline is currently set up ONLY TORQUE job handlers (SLURM in progress and will be updated soon), with current set up being for IU Carbonate Cluster. If you want to run this on your own hardware, we can help you convert the scripts to run on your machine.
 READ THE READMEs.  There are READMEs in every folder.
 
