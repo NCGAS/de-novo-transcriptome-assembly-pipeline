@@ -62,8 +62,13 @@ SEE http://arthropods.eugenes.org/EvidentialGene/trassembly.html for documentait
 ALSO SEE https://ncgas.org/Blog_Posts/EviGene.php for explanation of EviGene's methods!
 
 
- ### Step 4: ###
-You can continue downstream analysis with the README's in final_assemblies, for annotation, differential expression (DE), quality control (QC), and using this version with data generated from previous versions of the pipeline!
+### Step 4: ###
+You can continue downstream analysis with the README's in final_assemblies, 
+1. annotation - using Trinotate
+2. differential expression (DE) - using Kallisto
+3. quality control (QC) - runs BUSCO and QUAST to calculate assembly statistics
+
+This step can be done on data assembled with version 4 or previous versions (2 or 3) of the pipeline!
 
 ### Indiana University Machine (Torque job handler) ###
 Project Carbonate v1- original scripts as described at PAG 2018
