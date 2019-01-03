@@ -1,0 +1,39 @@
+Trinity:
+Haas, B. J., Papanicolaou, A., Yassour, M., Grabherr, M., Blood, P. D., Bowden, J.,
+Couger, M. B., Eccles, D., Li, B., Lieber, M., Macmanes, M. D., Ott, M., Orvis, J.,
+Pochet, N., Strozzi, F., Weeks, N., Westerman, R., William, T., Dewey, C. N., Henschel,
+R., Leduc, R. D., Friedman, N., and Regev, A. (2013) De novo transcript sequence
+reconstruction from RNA-seq using the Trinity platform for reference generation and
+analysis. Nat. Protoc. 8, 1494–1512
+
+TransAbyss:
+Robertson, G., Schein, J., Chiu, R., Corbett, R., Field, M., Jackman, S. D., Mungall, K.,
+Lee, S., Okada, H. M., Qian, J. Q., Griffith, M., Raymond, A., Thiessen, N., Cezard, T.,
+Butterfield, Y. S., Newsome, R., Chan, S. K., She, R., Varhol, R., Kamoh, B., Prabhu,
+A.-L., Tam, A., Zhao, Y., Moore, R. A., Hirst, M., Marra, M. A., Jones, S. J. M.,
+Hoodless, P. A., and Birol, I. (2010) De novo assembly and analysis of RNA-seq data.
+Nat. Methods. 7, 909–12
+
+Velvet-Oases:
+Schulz, M. H., Zerbino, D. R., Vingron, M., and Birney, E. (2012) Oases: Robust de
+novo RNA-seq assembly across the dynamic range of expression levels. Bioinformatics.
+28, 1086–1092
+
+SoapTrans:
+Li, R., Yu, C., Li, Y., Lam, T. W., Yiu, S. M., Kristiansen, K., and Wang, J. (2009)
+SOAP2: An improved ultrafast tool for short read alignment. Bioinformatics. 25, 1966–
+1967
+
+Evigenes:
+Don Gilbert, Indiana University, http://arthropods.eugenes.org/
+
+Trinotate: 
+Haas BJ, Papanicolaou A, Yassour M, Grabherr M, Blood PD, et al. (2013) De novo transcript sequence reconstruction from RNA-seq using the Trinity platform for reference generation and analysis. Nature Protocols 8: 1494–1512.
+
+BUSCO:
+Waterhouse BM, Seppey M, Simao FA, Manni M, Ioannidis P, Klioutchnikov G, Kriventseva EV, Zdobnov EM. (2017) BUSCO Applications from Quality Assessments to Gene Predictions and Phylogenomics. Mol. Bio. Evol. 35(3):543-548. 
+
+Simao FA, Waterhouse RM, Ioannidis P, Kriventseva EV, Zdobnov EM. (2015) BUSCO: assessing genome assembly and annotation completeness with single-copy orthologs. Bioinformatics. 31(19):3210-3212.
+
+Quast:
+Gurevich A, Salevliev V, Vyahhi N, Tesler G. (2013) QUAST: quality assessment tool for genome assemblies. Bioinformatics. 29(8): 1072-1075.

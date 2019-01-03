@@ -1,0 +1,6 @@
+This should run without too much customization.
+
+First run the Run* scripts as described in the main README and then use ./Combine.sh to combine and finalize the set.
+
+TransABySS manual: http://www.bcgsc.ca/platform/bioinfo/software/trans-abyss
+TransABySS license: http://www.bcgsc.ca/platform/bioinfo/license/bcca_2010

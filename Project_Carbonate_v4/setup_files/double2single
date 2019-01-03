@@ -1,0 +1,210 @@
+Binary files Project_Carbonate_v4ss/final_assemblies/annotation/Trinotate.sqlite and Project_Carbonate_v4/final_assemblies/annotation/Trinotate.sqlite differ
+diff -ruN Project_Carbonate_v4ss/input_files/RunTrinity.normalize.sh Project_Carbonate_v4/input_files/RunTrinity.normalize.sh
+--- Project_Carbonate_v4ss/input_files/RunTrinity.normalize.sh	2018-12-05 18:25:32.000000000 -0500
++++ Project_Carbonate_v4/input_files/RunTrinity.normalize.sh	2018-12-05 17:24:06.000000000 -0500
+@@ -9,7 +9,10 @@
+ 
+ cd PWDHERE/input_files
+ 
+-export reads=PWDHERE/input_files/reads.fq
++export right=PWDHERE/input_files/right.fq
++export left=PWDHERE/input_files/left.fq
++
++insilico_read_normalization.pl --seqType fq -JM 100G --max_cov 30 --left $left --right $right --pairs_together --PARALLEL_STATS --CPU 16
++ln -s PWDHERE/input_files/left.norm.fq PWDHERE/input_files/left-norm.fq
++ln -s PWDHERE/input_files/right.norm.fq PWDHERE/input_files/right-norm.fq
+ 
+-insilico_read_normalization.pl --seqType fq -JM 100G --max_cov 30 --single $reads --PARALLEL_STATS --CPU 16
+-ln -s PWDHERE/input_files/single.norm.fq PWDHERE/input_files/reads-norm.fq
+diff -ruN Project_Carbonate_v4ss/SOAP/config_file Project_Carbonate_v4/SOAP/config_file
+--- Project_Carbonate_v4ss/SOAP/config_file	2018-12-05 17:43:39.000000000 -0500
++++ Project_Carbonate_v4/SOAP/config_file	2018-12-05 17:24:06.000000000 -0500
+@@ -4,12 +4,14 @@
+ #maximal read length in this lib
+ rd_len_cutof=150
+ #average insert size
+-#avg_ins=400 # commented this out since they are unpaired reads
++avg_ins=400
+ #if sequence needs to be reversed 
+-#reverse_seq=0 #commented this out since they are unpaired reads
++reverse_seq=0
+ #in which part(s) the reads are used
+ asm_flags=3
+ #minimum aligned length to contigs for a reliable read location (at least 32 for short insert size)
+ map_len=32
+-#fastq file for unpaired reads
+-q=PWDHERE/input_files/reads-norm.fq
++#fastq file for read 1 
++q1=PWDHERE/input_files/left-norm.fq
++#fastq file for read 2 always follows fastq file for read 1
++q2=PWDHERE/input_files/right-norm.fq
+diff -ruN Project_Carbonate_v4ss/TransAbyss/RunTransAb1b.sh Project_Carbonate_v4/TransAbyss/RunTransAb1b.sh
+--- Project_Carbonate_v4ss/TransAbyss/RunTransAb1b.sh	2018-12-05 17:43:39.000000000 -0500
++++ Project_Carbonate_v4/TransAbyss/RunTransAb1b.sh	2018-12-05 17:24:05.000000000 -0500
+@@ -10,10 +10,11 @@
+ module load igraph/python/0.7.1
+ module load blat
+ #run
+-reads=PWDHERE/input_files/reads-norm.fq
++reads1=PWDHERE/input_files/left-norm.fq
++reads2=PWDHERE/input_files/right-norm.fq
+ OD=`pwd`
+ 
+-transabyss -k 65 --se $reads --outdir $OD --name k65.transabyss.fa --threads 4 -c 12 
+-transabyss -k 75 --se $reads --outdir $OD --name k75.transabyss.fa --threads 4 -c 12 
+-transabyss -k 85 --se $reads --outdir $OD --name k85.transabyss.fa --threads 4 -c 12 
++transabyss -k 65 --pe $reads1 $reads2 --outdir $OD --name k65.transabyss.fa --threads 4 -c 12 
++transabyss -k 75 --pe $reads1 $reads2 --outdir $OD --name k75.transabyss.fa --threads 4 -c 12 
++transabyss -k 85 --pe $reads1 $reads2 --outdir $OD --name k85.transabyss.fa --threads 4 -c 12 
+ 
+diff -ruN Project_Carbonate_v4ss/TransAbyss/RunTransAb1.sh Project_Carbonate_v4/TransAbyss/RunTransAb1.sh
+--- Project_Carbonate_v4ss/TransAbyss/RunTransAb1.sh	2018-12-05 17:43:39.000000000 -0500
++++ Project_Carbonate_v4/TransAbyss/RunTransAb1.sh	2018-12-05 17:24:05.000000000 -0500
+@@ -11,9 +11,10 @@
+ module load blat
+ 
+ #run
+-reads=PWDHERE/input_files/reads-norm.fq
++reads1=PWDHERE/input_files/left-norm.fq
++reads2=PWDHERE/input_files/right-norm.fq
+ OD=`pwd`
+ 
+-transabyss -k 35 --se $reads --outdir $OD --name k35.transabyss.fa --threads 4 -c 12 
+-transabyss -k 45 --se $reads --outdir $OD --name k45.transabyss.fa --threads 4 -c 12 
+-transabyss -k 55 --se $reads --outdir $OD --name k55.transabyss.fa --threads 4 -c 12 
++transabyss -k 35 --pe $reads1 $reads2 --outdir $OD --name k35.transabyss.fa --threads 4 -c 12 
++transabyss -k 45 --pe $reads1 $reads2 --outdir $OD --name k45.transabyss.fa --threads 4 -c 12 
++transabyss -k 55 --pe $reads1 $reads2 --outdir $OD --name k55.transabyss.fa --threads 4 -c 12 
+diff -ruN Project_Carbonate_v4ss/Trinity/RunTrinity.sh Project_Carbonate_v4/Trinity/RunTrinity.sh
+--- Project_Carbonate_v4ss/Trinity/RunTrinity.sh	2018-12-05 17:43:39.000000000 -0500
++++ Project_Carbonate_v4/Trinity/RunTrinity.sh	2018-12-05 17:24:06.000000000 -0500
+@@ -9,8 +9,8 @@
+ 
+ cd PWDHERE/Trinity
+ 
+-export reads=PWDHERE/input_files/reads-norm.fq
+-
+-Trinity --max_memory 200G --seqType fq  --single $reads --CPU 16 --full_cleanup --output trinity_out_dir 
++export right=PWDHERE/input_files/right-norm.fq
++export left=PWDHERE/input_files/left-norm.fq
+ 
++Trinity --max_memory 200G --seqType fq  --left $left --right $right --CPU 16 --full_cleanup --output trinity_out_dir 
+ cp trinity_out_dir.Trinity.fasta ../final_assemblies/Trinity.fa
+diff -ruN Project_Carbonate_v4ss/Velvet/README Project_Carbonate_v4/Velvet/README
+--- Project_Carbonate_v4ss/Velvet/README	2018-12-05 17:43:39.000000000 -0500
++++ Project_Carbonate_v4/Velvet/README	2018-12-05 17:24:05.000000000 -0500
+@@ -3,7 +3,7 @@
+ You MUST wait for 1 to finish before launching 2, or 3.
+ After you are done, run ./Combine.sh
+ 
+-NOTE: Please check the read length settings in the options for Velvet.
++NOTE: Please check the read length and insert length (in RunVelvet2*) settings in the options for Velvet.  The defaults are insert size of 100, though 400 is more common.
+ 
+ Velvet Manual: https://www.ebi.ac.uk/~zerbino/velvet/Manual.pdf
+ Velvet Licence: https://www.gnu.org/licenses/gpl-2.0-standalone.html
+diff -ruN Project_Carbonate_v4ss/Velvet/RunVelvet1b.sh Project_Carbonate_v4/Velvet/RunVelvet1b.sh
+--- Project_Carbonate_v4ss/Velvet/RunVelvet1b.sh	2018-12-05 17:43:39.000000000 -0500
++++ Project_Carbonate_v4/Velvet/RunVelvet1b.sh	2018-12-05 17:24:05.000000000 -0500
+@@ -12,11 +12,12 @@
+ module load oases/0.2.09
+ 
+ #input define
+-reads=PWDHERE/input_files/reads-norm.fq
++right=PWDHERE/input_files/right-norm.fq
++left=PWDHERE/input_files/left-norm.fq
+ 
+ ##run code
+-velveth oases.65 65 -short -fastq $reads &
+-velveth oases.75 75 -short -fastq $reads &
+-velveth oases.85 85 -short -fastq $reads &
++velveth oases.65 65 -shortPaired -fastq -separate $left $right &
++velveth oases.75 75 -shortPaired -fastq -separate $left $right &
++velveth oases.85 85 -shortPaired -fastq -separate $left $right &
+ 
+ wait
+diff -ruN Project_Carbonate_v4ss/Velvet/RunVelvet1.sh Project_Carbonate_v4/Velvet/RunVelvet1.sh
+--- Project_Carbonate_v4ss/Velvet/RunVelvet1.sh	2018-12-05 17:43:39.000000000 -0500
++++ Project_Carbonate_v4/Velvet/RunVelvet1.sh	2018-12-05 17:24:05.000000000 -0500
+@@ -12,11 +12,12 @@
+ module load oases/0.2.09
+ 
+ #input define
+-reads=PWDHERE/input_files/reads-norm.fq
++right=PWDHERE/input_files/right-norm.fq
++left=PWDHERE/input_files/left-norm.fq
+ 
+ ##run code
+-velveth oases.35 35 -short -fastq  $reads &
+-velveth oases.45 45 -short -fastq  $reads &
+-velveth oases.55 55 -short -fastq  $reads &
++velveth oases.35 35 -shortPaired -fastq -separate $left $right &
++velveth oases.45 45 -shortPaired -fastq -separate $left $right &
++velveth oases.55 55 -shortPaired -fastq -separate $left $right &
+ 
+ wait
+diff -ruN Project_Carbonate_v4ss/Velvet/RunVelvet2b.sh Project_Carbonate_v4/Velvet/RunVelvet2b.sh
+--- Project_Carbonate_v4ss/Velvet/RunVelvet2b.sh	2018-12-05 17:43:39.000000000 -0500
++++ Project_Carbonate_v4/Velvet/RunVelvet2b.sh	2018-12-05 17:24:05.000000000 -0500
+@@ -12,11 +12,12 @@
+ module load oases/0.2.09
+ 
+ #input define
+-reads=PWDHERE/input_files/reads-norm.fq
++right=PWDHERE/input_files/right-norm.fq
++left=PWDHERE/input_files/left-norm.fq
+ 
+ ##run code
+-velvetg oases.65 -read_trkg yes &
+-velvetg oases.75 -read_trkg yes &
+-velvetg oases.85 -read_trkg yes &
++velvetg oases.65 -read_trkg yes -ins_length 400 &
++velvetg oases.75 -read_trkg yes -ins_length 400 &
++velvetg oases.85 -read_trkg yes -ins_length 400 &
+ 
+ wait
+diff -ruN Project_Carbonate_v4ss/Velvet/RunVelvet2.sh Project_Carbonate_v4/Velvet/RunVelvet2.sh
+--- Project_Carbonate_v4ss/Velvet/RunVelvet2.sh	2018-12-05 17:43:39.000000000 -0500
++++ Project_Carbonate_v4/Velvet/RunVelvet2.sh	2018-12-05 17:24:05.000000000 -0500
+@@ -12,11 +12,12 @@
+ module load oases/0.2.09
+ 
+ #input define
+-reads=PWDHERE/input_files/reads-norm.fq
++right=PWDHERE/input_files/right-norm.fq
++left=PWDHERE/input_files/left-norm.fq
+ 
+ ##run code
+-velvetg oases.35 -read_trkg yes  &
+-velvetg oases.45 -read_trkg yes  &
+-velvetg oases.55 -read_trkg yes  &
++velvetg oases.35 -read_trkg yes -ins_length 400 &
++velvetg oases.45 -read_trkg yes -ins_length 400 &
++velvetg oases.55 -read_trkg yes -ins_length 400 &
+ 
+ wait
+diff -ruN Project_Carbonate_v4ss/Velvet/RunVelvet3b.sh Project_Carbonate_v4/Velvet/RunVelvet3b.sh
+--- Project_Carbonate_v4ss/Velvet/RunVelvet3b.sh	2018-12-05 17:43:39.000000000 -0500
++++ Project_Carbonate_v4/Velvet/RunVelvet3b.sh	2018-12-05 17:24:05.000000000 -0500
+@@ -12,7 +12,8 @@
+ module load oases/0.2.09
+ 
+ #input define
+-reads=PWDHERE/input_files/reads-norm.fq
++right=PWDHERE/input_files/right-norm.fq
++left=PWDHERE/input_files/left-norm.fq
+ 
+ ##run code
+ oases oases.65 &
+diff -ruN Project_Carbonate_v4ss/Velvet/RunVelvet3.sh Project_Carbonate_v4/Velvet/RunVelvet3.sh
+--- Project_Carbonate_v4ss/Velvet/RunVelvet3.sh	2018-12-05 17:43:39.000000000 -0500
++++ Project_Carbonate_v4/Velvet/RunVelvet3.sh	2018-12-05 17:24:05.000000000 -0500
+@@ -12,7 +12,8 @@
+ module load oases/0.2.09
+ 
+ #input define
+-reads=PWDHERE/input_files/reads-norm.fq
++right=PWDHERE/input_files/right-norm.fq
++left=PWDHERE/input_files/left-norm.fq
+ 
+ ##run code
+ oases oases.35 &
