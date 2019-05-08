@@ -90,7 +90,7 @@
     - wget https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.9.0+-x64-linux.tar.gz
     - tar -xvzf 
 
-- ### Evigene ###
+- ### Evigene 
 
 
 - ### Busco ###
@@ -99,21 +99,21 @@
   - python setup.py install
   - Download the busco-lineages from the website 
 
-- ### Hmmer ###
+- ### Hmmer
   - wget http://eddylab.org/software/hmmer/hmmer.tar.gz
   - tar -xvzf hmmer.tar.gz
   - ./configure --prefix=`pwd`
   - make 
   - make install
 
-- ### Augustus ###
+- ### Augustus
   - wget http://augustus.gobics.de/binaries/augustus.2.5.5.tar.gz
   - tar -xvzf 
 
 - ### R v3.31 ###
   - sudo apt install r-base # this installion command is from a VM, not for the cluster 
 
-- ### bamtools ### 
+- ### bamtools 
   - git clone git://github.com/pezmaster31/bamtools.git
   - mkdir build  
   - cd build  
@@ -121,22 +121,22 @@
   - make
   - make install 
 
-- ### quast v.5.0.0 ###
+- ### QUAST v.5.0.0 
   - wget http://cab.spbu.ru/software/quast-lg/
   - tar -xvzf 
   - ./setup.py install --prefix=`pwd`
   - export PYTHONPATH=/N/soft/rhel7/quast/5.0.0/lib/python2.7/site-packages:$PYTHONPATH
   - ./setup.py install --prefix=`pwd`
 
-- ### Transdecoder v.5.50 ###
+- ### Transdecoder v.5.50
   - wget https://github.com/TransDecoder/TransDecoder/archive/TransDecoder-v5.5.0.tar.gz
   - tar -xvzf 
 
-- ### Trinotate v3.1.1 ### 
+- ### Trinotate v3.1.1 
   - wget https://github.com/Trinotate/Trinotate/archive/Trinotate-v3.1.1.tar.gz
   - tar -xvzf 
     - Optional dependencies 
-      - #### SignalP ####
+      - #### SignalP 
       - Submit request at http://www.cbs.dtu.dk/cgi-bin/sw_ship.cgi, to get a link to install 
       - wget http://www.cbs.dtu.dk/download/EACB3908-31EC-11E8-A1EB-A986465A7DCF/signalp-4.1f.Linux.tar.gz
       - tar -xvzf 
@@ -144,26 +144,26 @@
       - export PERL5LIB=/N/soft/rhel7/trinotate/signalp-4.1/lib:$PERL5LIB
       - ./signalp -h #test to check if this works 
       
-      - #### tmhmm ####
+      - #### tmhmm 
       - Submit request at http://www.cbs.dtu.dk/cgi-bin/sw_ship.cgi to get a link to install
       - wget http://www.cbs.dtu.dk/download/25FA847A-31ED-11E8-B531-4E89465A7DCF/tmhmm-2.0c.Linux.tar.gz
       - tar -xvzf 
 
-      - #### RNAmmer ####
+      - #### RNAmmer 
       - Submit request at http://www.cbs.dtu.dk/cgi-bin/sw_ship.cgi to get a link to install
         this software requires a previous copy of hmmer v2, so will not be supporting this tool
       - wget http://eddylab.org/software/hmmer/2.3/hmmer-2.3.tar.gz
-    - tar -xvzf 
-    - ./configure --prefix=/N/soft/rhel7/trinotate/hmmer-2.3/
-    - make 
-    - export PATH=/N/soft/rhel7/trinotate/hmmer-2.3/src:$PATH
-    - wget http://www.cbs.dtu.dk/download/610C03F4-31ED-11E8-95B1-528D465A7DCF/rnammer-1.2.src.tar.Z
-    - cat rnammer-1.2.src.tar.Z | gunzip | tar xvf -
-    - export PATH=/N/soft/rhel7/trinotate/3.1.1:/N/soft/rhel7/trinotate/hmmer-2.3/src:/N/soft/rhel7/trinotate/rnammer-1.2:/N/soft/rhel7/trinotate/signalp-4.1/bin:/N/soft/rhel7/trinotate/tmhmm-2.0c/bin:$PATH
-    - export PERL5LIB=/N/soft/rhel7/trinotate/3.1.1/PerlLib:/N/soft/rhel7/trinotate/signalp-4.1/lib:$PERL5LIB
-    - /N/soft/rhel7/trinotate/Trinotate-Trinotate-v3.1.1/admin/Build_Trinotate_Boilerplate_SQLite_db.pl  Trinotate #download the databases 
-    - gzip -d *.gz
-      Formatting the database : 
+      - tar -xvzf 
+      - ./configure --prefix=/N/soft/rhel7/trinotate/hmmer-2.3/
+      - make 
+      - export PATH=/N/soft/rhel7/trinotate/hmmer-2.3/src:$PATH
+      - wget http://www.cbs.dtu.dk/download/610C03F4-31ED-11E8-95B1-528D465A7DCF/rnammer-1.2.src.tar.Z
+      - cat rnammer-1.2.src.tar.Z | gunzip | tar xvf -
+      - export PATH=/N/soft/rhel7/trinotate/3.1.1:/N/soft/rhel7/trinotate/hmmer-2.3/src:/N/soft/rhel7/trinotate/rnammer-1.2:/N/soft/rhel7/trinotate/signalp-4.1/bin:/N/soft/rhel7/trinotate/tmhmm-2.0c/bin:$PATH
+      - export PERL5LIB=/N/soft/rhel7/trinotate/3.1.1/PerlLib:/N/soft/rhel7/trinotate/signalp-4.1/lib:$PERL5LIB
+      - /N/soft/rhel7/trinotate/Trinotate-Trinotate-v3.1.1/admin/Build_Trinotate_Boilerplate_SQLite_db.pl  Trinotate #download the databases 
+      - gzip -d *.gz
+        Formatting the database : 
       - makeblastdb -in uniprot_sprot.pep -dbtype prot
       - hmmpress Pfam-A.hmm
 
