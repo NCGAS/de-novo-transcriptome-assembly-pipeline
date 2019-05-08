@@ -163,9 +163,9 @@
       - export PERL5LIB=/N/soft/rhel7/trinotate/3.1.1/PerlLib:/N/soft/rhel7/trinotate/signalp-4.1/lib:$PERL5LIB
       - /N/soft/rhel7/trinotate/Trinotate-Trinotate-v3.1.1/admin/Build_Trinotate_Boilerplate_SQLite_db.pl  Trinotate #download the databases 
       - gzip -d *.gz
-        Formatting the database : 
-      - makeblastdb -in uniprot_sprot.pep -dbtype prot
-      - hmmpress Pfam-A.hmm
+          Formatting the database : 
+        - makeblastdb -in uniprot_sprot.pep -dbtype prot
+        - hmmpress Pfam-A.hmm
 
 
 
