@@ -86,7 +86,7 @@
   - ln -s <symlinked the installed version of velvet here from rhel7 > 
   - make MAXKMERLENGTH=192
 
--  ### BLAST### 
+-  ### BLAST
     - wget https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.9.0+-x64-linux.tar.gz
     - tar -xvzf 
 
@@ -134,9 +134,9 @@
 
 - ### Trinotate v3.1.1 
   - wget https://github.com/Trinotate/Trinotate/archive/Trinotate-v3.1.1.tar.gz
-  - tar -xvzf 
-    - Optional dependencies 
-      - #### SignalP 
+  - tar -xvzf
+  - Optional dependencies 
+    - #### SignalP 
       - Submit request at http://www.cbs.dtu.dk/cgi-bin/sw_ship.cgi, to get a link to install 
       - wget http://www.cbs.dtu.dk/download/EACB3908-31EC-11E8-A1EB-A986465A7DCF/signalp-4.1f.Linux.tar.gz
       - tar -xvzf 
@@ -144,12 +144,12 @@
       - export PERL5LIB=/N/soft/rhel7/trinotate/signalp-4.1/lib:$PERL5LIB
       - ./signalp -h #test to check if this works 
       
-      - #### tmhmm 
+    - #### tmhmm 
       - Submit request at http://www.cbs.dtu.dk/cgi-bin/sw_ship.cgi to get a link to install
       - wget http://www.cbs.dtu.dk/download/25FA847A-31ED-11E8-B531-4E89465A7DCF/tmhmm-2.0c.Linux.tar.gz
       - tar -xvzf 
 
-      - #### RNAmmer 
+    - #### RNAmmer 
       - Submit request at http://www.cbs.dtu.dk/cgi-bin/sw_ship.cgi to get a link to install
         this software requires a previous copy of hmmer v2, so will not be supporting this tool
       - wget http://eddylab.org/software/hmmer/2.3/hmmer-2.3.tar.gz
