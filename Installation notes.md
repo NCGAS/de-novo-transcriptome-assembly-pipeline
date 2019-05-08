@@ -6,7 +6,7 @@
   - cd tritnity
   - make
 
-- ### Bowtie2 ###
+- ### Bowtie2
   - Download binaries from https://sourceforge.net/projects/bowtie-bio/?source=typ_redirect
   - unzip 
   
@@ -32,7 +32,7 @@
   - wget https://github.com/COMBINE-lab/salmon/releases/download/v0.11.0/salmon-0.11.0-linux_x86_64.tar.gz
   - tar -xvzf 
   
-- ### kallisto v0.45.0 ### 
+- ### kallisto v0.45.0
   - wget https://github.com/pachterlab/kallisto/releases/download/v0.45.0/kallisto_linux-v0.45.0.tar.gz
   - tar -xvzf 
 
