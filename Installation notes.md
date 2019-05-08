@@ -65,7 +65,7 @@
   - Downlaod http://www.bcgsc.ca/platform/bioinfo/software/trans-abyss
   - tar -xvzf 
 
-- ### blat### (http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/blat/)
+- ### blat (http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/blat/)
   - wget http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/blat/blat
   - chmod +x blat
 
@@ -87,8 +87,8 @@
   - make MAXKMERLENGTH=192
 
 -  ### BLAST### 
-  - wget https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.9.0+-x64-linux.tar.gz
-  - tar -xvzf 
+    - wget https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.9.0+-x64-linux.tar.gz
+    - tar -xvzf 
 
 - ### Evigene ###
 
