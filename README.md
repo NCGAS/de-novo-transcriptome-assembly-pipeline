@@ -79,3 +79,6 @@ Project Carbonate v4 - original scripts as described in PAG 2019
 Project Bridges v1- original scripts as described at PAG 2018
 Project Bridges v2 - added updated transabyss (2.0) and defaulted everything everything to run on normalized files, added normalization script to input_files
 Project Bridges v4- Work in prgress
+
+### Youtube videos from workshop
+This pipeline was taught at Transcriptome assembly workshop, which was recorded and the vidoes are available on YouTube, https://www.youtube.com/playlist?list=PLqi-7yMgvZy_IaAiPG89AX2cQH2JY4Ifo&disable_polymer=true
