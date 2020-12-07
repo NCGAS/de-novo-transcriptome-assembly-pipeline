@@ -1,7 +1,9 @@
 Any step that is followed by a "b", etc. (RunVelvet2b.sh or Step 2b) can be run at the same time as the matching number (RunVelvet.sh or Step2).
 
 Step 0:
-You will need to run the start up script to set up your email, project location, and designate if you are using single or double strands.  This can be done with the following command:
+First, rename the folder from Project_Carbonate_v4 to something reflecting what you are actually doing, such as Alat_Chytrid_2020, etc.  Do this before you run the set up script.
+
+Then, you will need to run the start up script to set up your email, project location, and designate if you are using single or double strands.  This can be done with the following command:
 
   Setup.ba -e <your email> -s <single or double> -r <read length> -i <insert size if double>
 
@@ -22,6 +24,8 @@ You can get citations for all software by using:
 
 NOTE: You can change your email and strand setting several times, but the current working directory will only be run the first time.  As long as you don't move the directory, this will not cause any issues.
 Also, this step can take a bit of time, and you can ignore any sed related errors - that is expected at this time!
+
+To check this worked: Open any of the assembler folders (i.e. Trinity) and look at the job files - i.e. files named something like RunTrinity.sh.  Your email should be updated, the path to the directory should now be included.  If you did paired, you should see a left and right variable; if single reads, a reads variable.  Also, in SOAP, your config file should reflect your input read length and insert length if you changed them from the defaults.
 
 Step 1:
 Put all your reads into input_files - DO THIS AFTER STEP 0! Otherwise it will take forever!
