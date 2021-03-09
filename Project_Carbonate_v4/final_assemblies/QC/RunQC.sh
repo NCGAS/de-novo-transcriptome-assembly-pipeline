@@ -55,7 +55,7 @@ for f in *.quast/report.txt; do tail -n 22 $f | awk 'ORS=" " {print $NF}END{prin
 
 #join
 join -1 1 -2 1 BUSCO.table quast.table | column -t > QC.table
-cat BUSCO.table | column -t > tmp; mv tmp BUSCO.table
-cat quast.table | | column -t > tmp; mv tmp quast.table
+cat BUSCO.table | column -t > tmp1; mv tmp1 BUSCO.table
+cat quast.table | column -t > tmp1; mv tmp1 quast.table
 
 #use less -S to view the table!
