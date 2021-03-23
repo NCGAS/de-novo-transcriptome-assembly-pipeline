@@ -37,23 +37,23 @@ Command: qsub RunTrinity.normalize.sh
 
 Step 2: SOAP
 Run RunSOAP1.sh and RunSOAP1b.sh at the same time.
-Command: qsub RunSOAP1*
+Command: qsub RunSOAP1.sh; qsub RunSOAP1b.sh
 When they finish, run ./Combine.sh
 Command: ./Combine.sh
 
 Step 2b: Velvet
 Run RunVelvet1.sh and RunVelvet1b.sh at the same time.  
-Command: qsub RunVelvet1*
+Command: qsub RunVelvet1.sh;qsub RunVelvet1b.sh
 When BOTH above are complete, run RunVelvet2.sh and RunVelvet2b.sh at the same time.  
-Command: qsub RunVelvet2*
+Command: qsub RunVelvet2.sh; qsub RunVelvet2b.sh
 When BOTH above are complete, run RunVelvet3.sh and RunVelvet3b.sh at the same time.  When they finish, run ./Combine.sh (no need to submit to queue).
-Command: qsub RunVelvet3*
+Command: qsub RunVelvet3.sh; qsub RunVelvet3b.sh
 When they finish, run ./Combine.sh
 Command: ./Combine.sh
 
 Step 2c: TransAbyss
 Run RunTransAb1.sh and RunTransAb1b.sh at the same time.
-Command: qsub RunTransAbyss1*
+Command: qsub RunTransAbyss1.sh; qsub RunTransAbyss1b.sh
 When they finish, run ./Combine.sh
 Command: ./Combine.sh
 
