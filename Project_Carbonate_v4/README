@@ -1,4 +1,4 @@
-Any step that is followed by a "b", etc. (RunVelvet2b.sh or Step 2b) can be run at the same time as the matching number (RunVelvet.sh or Step2).
+Any step that is followed by a "b", (e.g., RunVelvet2b.sh or Step 2b) can be run or qsub'd at the same time as the matching number (e.g., RunVelvet.sh or Step2, respectively).
 
 Step 0:
 First, rename the folder from Project_Carbonate_v4 to something reflecting what you are actually doing, such as Alat_Chytrid_2020, etc.  Do this before you run the set up script.
@@ -25,14 +25,14 @@ You can get citations for all software by using:
 NOTE: You can change your email and strand setting several times, but the current working directory will only be run the first time.  As long as you don't move the directory, this will not cause any issues.
 Also, this step can take a bit of time, and you can ignore any sed related errors - that is expected at this time!
 
-To check this worked: Open any of the assembler folders (i.e. Trinity) and look at the job files - i.e. files named something like RunTrinity.sh.  Your email should be updated, the path to the directory should now be included.  If you did paired, you should see a left and right variable; if single reads, a reads variable.  Also, in SOAP, your config file should reflect your input read length and insert length if you changed them from the defaults.
+To check this worked: Open any of the assembler folders (i.e. Trinity) and look at the job files - i.e. files named something like RunTrinity.sh.  Your email should be updated, the path to the directory should now be included.  If you did paired reads, you should see a left and right variable; if single reads, a reads variable.  Also, in SOAP, your config file should reflect your input read length and insert length if you changed them from the defaults.
 
 Step 1:
 Put all your reads into input_files - DO THIS AFTER STEP 0! Otherwise it will take forever!
 Read the README in input_files to get instructions for combining reads properly into input files.
 You can do this with symlink (use command "man ln" if you are unfamiliar with this command).
 
-Then run the normalization command - this will normalize your data and make it take less time/resources without loss of information.
+Then run the normalization command - this will normalize your data and require less time and resources without loss of information.
 Command: qsub RunTrinity.normalize.sh
 
 Step 2: SOAP
@@ -43,7 +43,7 @@ Command: ./Combine.sh
 
 Step 2b: Velvet
 Run RunVelvet1.sh and RunVelvet1b.sh at the same time.  
-Command: qsub RunVelvet1.sh;qsub RunVelvet1b.sh
+Command: qsub RunVelvet1.sh; qsub RunVelvet1b.sh
 When BOTH above are complete, run RunVelvet2.sh and RunVelvet2b.sh at the same time.  
 Command: qsub RunVelvet2.sh; qsub RunVelvet2b.sh
 When BOTH above are complete, run RunVelvet3.sh and RunVelvet3b.sh at the same time.  When they finish, run ./Combine.sh (no need to submit to queue).
@@ -58,11 +58,11 @@ When they finish, run ./Combine.sh
 Command: ./Combine.sh
 
 Step 2d: Trinity
-Run RunTrinity.sh, there is no combine script for this assembler.
+Run RunTrinity.sh; there is no combine script for this assembler.
 Command: qsub RunTrinity.sh
 
 Step 3: Combine all outputs
-The outputs for each combined set will be placed automatically in final_assembly.
+The outputs for each combined set will be automatically placed in final_assembly.
 Run ./Combine.sh FIRST to get one input for Evigenes
 Run RunEviGene.sh 
 Command: ./Combine.sh; qsub RunEviGene.sh
@@ -78,8 +78,8 @@ within okayset, you will set two sets of files:
 	okalt.fa/aa/cds - these are the alternative versions of the transcripts in the okay file (alleles, isoforms, etc).
 		anything labeled "complete" is a full cds.
 
-SEE http://arthropods.eugenes.org/EvidentialGene/trassembly.html for documentaiton!
-ALSO SEE https://ncgas.org/Blog_Posts/EviGene.php for explanation of EviGene's methods!
+SEE http://arthropods.eugenes.org/EvidentialGene/trassembly.html for documentation!
+ALSO SEE https://blogs.iu.edu/ncgas/2018/12/17/how-evigene-works/ for explanation of EviGene's methods!
 
 Step 4:
-You can continue downstream analysis with the README's in final_assemblies, for annotation, DE, QC (in dev), and using this version with data generated from previous versions of the pipeline!
+You can continue downstream analysis by following the READMEs(for annotation, DE, QC (in dev), and using this version with data generated from previous versions of the pipeline) in final_assemblies.
