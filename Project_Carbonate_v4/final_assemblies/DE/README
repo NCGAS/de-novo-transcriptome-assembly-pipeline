@@ -4,7 +4,7 @@
 #load modules
 module load R 
 module load bioconductor 
-module load trinityrnaseq/2.6.6 
+module load trinityrnaseq/2.11.0 
 module load kallisto
 
 #make an index of the transcriptome with kallisto
@@ -19,14 +19,14 @@ kallisto quant -i combined_kal_index -o Sample12_treat_kallisto ../../input_file
 
 #make a table using custom scripts to combine above count files
 #make required changes to the adjust_matrix.sh file - namely the header desired!
-./adjust_matrix.sh
+bash adjust_matrix.sh
 
 #annotate your sample design according to trinity's documentation
 nano samples_described
 
 #run DE, in this case using edgeR (due to lack of three replicates)
-/N/soft/rhel7/trinityrnaseq/2.6.6/Analysis/DifferentialExpression/run_DE_analysis.pl --matrix matrix --method edgeR --samples_file samples described
+/N/soft/rhel7/trinityrnaseq/2.11.0/Analysis/DifferentialExpression/run_DE_analysis.pl --matrix matrix --method edgeR --samples_file samples described
 
 #run DE analyses (in this case using p=.5 due to the fact this was based on a toy data set with no DE
 cd edgeR.*/ 
-/N/soft/rhel7/trinityrnaseq/2.4.0/Analysis/DifferentialExpression/analyze_diff_expr.pl --matrix ../matrix -P 5e-1 -C 2 --sample ../samples_described
+/N/soft/rhel7/trinityrnaseq/2.11.0/Analysis/DifferentialExpression/analyze_diff_expr.pl --matrix ../matrix -P 5e-1 -C 2 --sample ../samples_described
