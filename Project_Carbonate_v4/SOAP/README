@@ -1,4 +1,4 @@
-You can run SOAP as described in the main README - run the 1 and 1b together, then ./Combine.sh after they have finished!
+You can run SOAP as described in the main README - run the 1 and 1b at the same time, then ./Combine.sh after they have finished!
 
 There are two major considerations in the configuration of SOAP - PLEASE DO NOT SKIP THESE!
 
