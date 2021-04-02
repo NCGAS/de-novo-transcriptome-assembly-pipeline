@@ -6,7 +6,7 @@ After you get a "combined.fa" file, run RunEvigenes.sh.
 This will give you several output folders:
 inputset:	This is a breakdown of the file you input, as a fa, cds, and aa translation
 okayset:	This includes two major sets: *.okay.* and *.okalt.*.  The okay files are the longest ("best") single version of a transcript.  Transcripts that are similar but not identical are stored in the okalt (alternative forms).  You can find the link between the two - see the documentation for evigenes at http://arthropods.eugenes.org/genes2/about/EvidentialGene_trassembly_pipe.html or email help@ncgas.org
-dropset:	This is a set of transcripts that were dropped for variaous reasons (each is labeled as to why) - they were perfect duplicates, they lacked the apparence of real transcripts (no cds), etc.  See documentation for descriptions!
+dropset:	This is a set of transcripts that were dropped for various reasons (each is labeled as to why) - they were perfect duplicates, they lacked the appearance of real transcripts (no cds), etc.  See documentation for descriptions!
 
 Typically, the *.okay.* set is a good putative, filtered transcriptome for you to start with.  It aims to have one representative per loci, which is ideal for mapping/DE/etc.  DO continue with QC.
 
