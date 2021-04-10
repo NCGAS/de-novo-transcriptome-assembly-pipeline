@@ -1,8 +1,15 @@
-#PBS -k oe
-#PBS -m abe
-#PBS -M 
-#PBS -N RunEviGene
-#PBS -l nodes=1:ppn=4,vmem=200gb,walltime=00:12:00:00
+#!/bin/bash 
+
+#SBATCH -J RunEviGene                                 
+#SBATCH -p general 
+#SBATCH -o RunEviGene_%j.out
+#SBATCH -e RunEviGene_%j.err 
+#SBATCH --mail-type=FAIL,BEGIN,END 
+#SBATCH --mail-user=
+#SBATCH --nodes=1 
+#SBATCH --ntasks-per-node=4
+#SBATCH --mem=200gb
+#SBATCH --time=12:00:00 
 
 module load evigene/gnu/2013.07.27
 module load blast 
