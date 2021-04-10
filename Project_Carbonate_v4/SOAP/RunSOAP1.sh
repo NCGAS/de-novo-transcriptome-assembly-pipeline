@@ -9,7 +9,7 @@
 #SBATCH --nodes=1 
 #SBATCH --ntasks-per-node=4 
 #SBATCH --mem=128gb
-#SBATCH --time=24:00:00 #requested time
+#SBATCH --time=24:00:00 
 
 ##Move to correct WD
 cd PWDHERE/SOAP
