@@ -1,8 +1,15 @@
-#PBS -k oe 
-#PBS -m abe
-#PBS -M 
-#PBS -N RunTrinotate
-#PBS -l nodes=1:ppn=2,vmem=100gb,walltime=72:00:00
+#!/bin/bash 
+
+#SBATCH -J RunTrinotate                                 
+#SBATCH -p general 
+#SBATCH -o filename_%j.txt
+#SBATCH -e filename_%j.err 
+#SBATCH --mail-type=FAIL,BEGIN,END 
+#SBATCH --mail-user=
+#SBATCH --nodes=1 
+#SBATCH --ntasks-per-node=2
+#SBATCH --mem=100gb
+#SBATCH --time=72:00:00 
 
 ##Move to correct WD
 cd PWDHERE/final_assemblies/annotation
