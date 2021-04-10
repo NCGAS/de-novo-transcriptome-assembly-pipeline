@@ -1,8 +1,15 @@
-#PBS -k oe
-#PBS -m abe ## Notify when abort, begin, end
-#PBS -M 
-#PBS -N RunTrinity
-#PBS -l nodes=1:ppn=16,vmem=220gb,walltime=4:00:00:00
+#!/bin/bash 
+
+#SBATCH -J RunTrinity                                   
+#SBATCH -p general 
+#SBATCH -o filename_%j.txt
+#SBATCH -e filename_%j.err 
+#SBATCH --mail-type=FAIL,BEGIN,END 
+#SBATCH --mail-user=
+#SBATCH --nodes=1 
+#SBATCH --ntasks-per-node=16
+#SBATCH --mem=220gb
+#SBATCH --time=4-0:0:00 
 
 module load trinityrnaseq/2.6.6
 
