@@ -1,8 +1,15 @@
-#PBS -k oe 
-#PBS -m abe
-#PBS -M 
-#PBS -N RunVelvet1b
-#PBS -l nodes=1:ppn=2,vmem=200gb,walltime=3:00:00
+#!/bin/bash 
+
+#SBATCH -J RunVelvet1b                                   
+#SBATCH -p general 
+#SBATCH -o filename_%j.txt
+#SBATCH -e filename_%j.err 
+#SBATCH --mail-type=FAIL,BEGIN,END 
+#SBATCH --mail-user=
+#SBATCH --nodes=1 
+#SBATCH --ntasks-per-node=2
+#SBATCH --mem=200gb
+#SBATCH --time=03:00:00 
 
 ##Move to correct WD
 cd PWDHERE/Velvet
