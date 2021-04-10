@@ -1,7 +1,15 @@
-#PBS -N TransAb1b
-#PBS -m bea
-#PBS -M 
-#PBS -l nodes=1:ppn=10,walltime=12:00:00,vmem=100gb
+#!/bin/bash 
+
+#SBATCH -J TransAb1b                                   
+#SBATCH -p general 
+#SBATCH -o filename_%j.txt
+#SBATCH -e filename_%j.err 
+#SBATCH --mail-type=FAIL,BEGIN,END 
+#SBATCH --mail-user=
+#SBATCH --nodes=1 
+#SBATCH --ntasks-per-node=10
+#SBATCH --mem=100gb
+#SBATCH --time=12:00:00 
 
 #set wd
 cd PWDHERE/TransAbyss
