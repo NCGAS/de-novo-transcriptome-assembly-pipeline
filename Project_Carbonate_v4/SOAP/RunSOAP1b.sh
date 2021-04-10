@@ -1,8 +1,15 @@
-#PBS -k oe 
-#PBS -m abe
-#PBS -M 
-#PBS -N RunSOAP1b
-#PBS -l nodes=1:ppn=4,vmem=128gb,walltime=24:00:00
+#!/bin/bash 
+
+#SBATCH -J RunSOAP1b                                   
+#SBATCH -p general 
+#SBATCH -o filename_%j.txt
+#SBATCH -e filename_%j.err 
+#SBATCH --mail-type=FAIL,BEGIN,END 
+#SBATCH --mail-user=
+#SBATCH --nodes=1 
+#SBATCH --ntasks-per-node=4 
+#SBATCH --mem=128gb
+#SBATCH --time=24:00:00 
 
 ##Move to correct WD
 cd PWDHERE/SOAP/
