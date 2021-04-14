@@ -2,8 +2,8 @@
 
 #SBATCH -J RunQC                                 
 #SBATCH -p general 
-#SBATCH -o filename_%j.txt
-#SBATCH -e filename_%j.err 
+#SBATCH -o QC_%j.log
+#SBATCH -e QC_%j.err 
 #SBATCH --mail-type=FAIL,BEGIN,END 
 #SBATCH --mail-user=
 #SBATCH --nodes=1 
