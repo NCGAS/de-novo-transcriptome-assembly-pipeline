@@ -16,8 +16,8 @@ done
 
 module load trinotate
 
-bash scripts/make_genes_to_transcripts.ba -i *.mainalt.tab -g $prefix
-bash scripts/convert_aa.ba -t genes_to_transcripts.tsv -f transcripts.main.aa
+scripts/make_genes_to_transcripts.ba -i *.mainalt.tab -g $prefix
+scripts/convert_aa.ba -t genes_to_transcripts.tsv -f transcripts.main.aa
 Trinotate Trinotate.sqlite init --gene_trans_map genes_to_transcripts.tsv --transcript_fasta transcripts.main.fa --transdecoder_pep transcripts.reformated.aa 
 
 awk 'NR==FNR {a[$2]=$1; next} NR>FNR {if ($1~/>/) {print ">"a[$1],$0} else {print $0}}' <(awk 'OFS="\t"{print $1,">"$2}' genes_to_transcripts.tsv) transcripts.main.fa | awk '{gsub(/>/,".",$2)}1{print $1$2,$3,$4,$5}' > transcripts.main.renamed.fa
