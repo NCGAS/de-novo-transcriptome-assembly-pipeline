@@ -2,7 +2,7 @@
 
 #SBATCH -J RunSOAP1                                     
 #SBATCH -p general 
-#SBATCH -o SOAP1_%j.txt
+#SBATCH -o SOAP1_%j.log
 #SBATCH -e SOAP1_%j.err 
 #SBATCH --mail-type=FAIL,BEGIN,END 
 #SBATCH --mail-user=
