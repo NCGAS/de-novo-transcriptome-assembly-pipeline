@@ -16,6 +16,8 @@ cd PWDHERE/final_assemblies/annotation
 
 module load trinotate
 
+cp /N/soft/rhel7/trinotate/3.1.1/Trinotate.sqlite .
+
 hmmscan --cpu 16 --domtblout PFAM.out $TRINOTATEDB/Pfam-A.hmm transcripts.reformated.aa > pfam.log &
 blastx -query transcripts.main.fa -db $TRINOTATEDB/uniprot_sprot.pep -num_threads 16 -max_target_seqs 1 -outfmt 6 -evalue 1e-3 > blastx.out &
 blastp -query transcripts.reformated.aa -db $TRINOTATEDB/uniprot_sprot.pep -num_threads 16 -max_target_seqs 1 -outfmt 6 -evalue 1e-3 > blastp.out &
