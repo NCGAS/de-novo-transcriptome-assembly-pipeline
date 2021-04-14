@@ -2,8 +2,8 @@
 
 #SBATCH -J RunTrinityNorm                                 
 #SBATCH -p general 
-#SBATCH -o filename_%j.txt
-#SBATCH -e filename_%j.err 
+#SBATCH -o TrinityNorm_%j.log
+#SBATCH -e TrinityNorm_%j.err 
 #SBATCH --mail-type=FAIL,BEGIN,END 
 #SBATCH --mail-user=
 #SBATCH --nodes=1 
