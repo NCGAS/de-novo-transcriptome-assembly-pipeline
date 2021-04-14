@@ -40,8 +40,8 @@ done
 echo "Note: this may take a few minutes"
 
 #Handle EMAIL and PWD set up
-for f in */Run*; do sed -i "s/PBS -M .*/PBS -M $EMAIL/g" $f 2>tmp1; done
-for f in final_assemblies/*/Run*; do sed -i "s/PBS -M .*/PBS -M $EMAIL/g" $f 2>tmp1; done
+for f in */Run*; do sed -i "s/#SBATCH --mail-user=.*/#SBATCH --mail-user=$EMAIL/g" $f 2>tmp1; done
+for f in final_assemblies/*/Run*; do sed -i "s/#SBATCH --mail-user=.*/#SBATCH --mail-user=$EMAIL/g" $f 2>tmp1; done
 
 for f in */*; do p=`pwd`; sed -i "s|PWDHERE|$p|g" $f 2>tmp1; done
 for f in final_assemblies/*/Run*; do p=`pwd`; sed -E -i "s|PWDHERE/final_assemblies/([A-Za-z]*)|$p/final_assemblies/\1|g" $f 2>tmp1; done
