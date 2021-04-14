@@ -2,8 +2,8 @@
 
 #SBATCH -J RunAnnotate                                 
 #SBATCH -p general 
-#SBATCH -o filename_%j.txt
-#SBATCH -e filename_%j.err 
+#SBATCH -o Annotate_%j.log
+#SBATCH -e Annotate_%j.err 
 #SBATCH --mail-type=FAIL,BEGIN,END 
 #SBATCH --mail-user=
 #SBATCH --nodes=1 
