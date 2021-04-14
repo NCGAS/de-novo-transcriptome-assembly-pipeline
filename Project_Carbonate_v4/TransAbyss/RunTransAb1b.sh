@@ -2,7 +2,7 @@
 
 #SBATCH -J TransAb1b                                   
 #SBATCH -p general 
-#SBATCH -o TransAb1b_%j.txt
+#SBATCH -o TransAb1b_%j.log
 #SBATCH -e TransAb1b_%j.err 
 #SBATCH --mail-type=FAIL,BEGIN,END 
 #SBATCH --mail-user=
