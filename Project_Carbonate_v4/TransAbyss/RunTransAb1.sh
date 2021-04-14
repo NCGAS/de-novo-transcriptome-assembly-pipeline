@@ -14,6 +14,7 @@
 #set wd
 cd PWDHERE/TransAbyss
 
+module load python
 module load transabyss/2.0.1
 module load igraph/python/0.7.1
 module load blat
