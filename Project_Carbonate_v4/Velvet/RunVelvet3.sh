@@ -2,8 +2,8 @@
 
 #SBATCH -J RunVelvet3                                  
 #SBATCH -p general 
-#SBATCH -o filename_%j.txt
-#SBATCH -e filename_%j.err 
+#SBATCH -o Velvet3_%j.log
+#SBATCH -e Velvet3_%j.err 
 #SBATCH --mail-type=FAIL,BEGIN,END 
 #SBATCH --mail-user=
 #SBATCH --nodes=1 
