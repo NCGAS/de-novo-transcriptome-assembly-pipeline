@@ -2,8 +2,8 @@
 
 #SBATCH -J RunEviGene                                 
 #SBATCH -p general 
-#SBATCH -o RunEviGene_%j.out
-#SBATCH -e RunEviGene_%j.err 
+#SBATCH -o EviGene_%j.log
+#SBATCH -e EviGene_%j.err 
 #SBATCH --mail-type=FAIL,BEGIN,END 
 #SBATCH --mail-user=
 #SBATCH --nodes=1 
