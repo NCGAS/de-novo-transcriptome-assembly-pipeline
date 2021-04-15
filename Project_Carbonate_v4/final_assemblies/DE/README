@@ -5,7 +5,6 @@
 module load bioconductor/3.12 
 module load trinityrnaseq/2.11.0 
 module load kallisto
-module load r/4.0.4
 
 #make an index of the transcriptome with kallisto
 kallisto index -i combined_kal_index combined.okay.fa
