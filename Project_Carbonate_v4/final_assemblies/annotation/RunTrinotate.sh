@@ -14,7 +14,7 @@
 ##Move to correct WD
 cd PWDHERE/final_assemblies/annotation
 
-module load perl
+module load perl/5.30.1
 module load hmmer/3.1
 module load trinotate
 
