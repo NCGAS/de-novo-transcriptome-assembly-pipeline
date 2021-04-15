@@ -14,6 +14,8 @@
 ##Move to correct WD
 cd PWDHERE/final_assemblies/annotation
 
+module load perl
+module load hmmer/3.1
 module load trinotate
 
 cp /N/soft/rhel7/trinotate/3.1.1/Trinotate.sqlite .
