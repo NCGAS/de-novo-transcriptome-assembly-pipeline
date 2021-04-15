@@ -19,6 +19,7 @@ module load hmmer/3.1
 module load trinotate
 
 cp /N/soft/rhel7/trinotate/3.1.1/Trinotate.sqlite .
+Trinotate Trinotate.sqlite init --gene_trans_map genes_to_transcripts.tsv --transcript_fasta transcripts.main.fa --transdecoder_pep transcripts.reformated.aa
 
 hmmscan --cpu 16 --domtblout PFAM.out $TRINOTATEDB/Pfam-A.hmm transcripts.reformated.aa > pfam.log &
 blastx -query transcripts.main.fa -db $TRINOTATEDB/uniprot_sprot.pep -num_threads 16 -max_target_seqs 1 -outfmt 6 -evalue 1e-3 > blastx.out &
@@ -28,6 +29,9 @@ tmhmm --short < transcripts.reformated.aa > tmhmm.out &
 RnammerTranscriptome.pl --transcriptome transcripts.main.fa --path_to_rnammer /N/soft/rhel7/trinotate/rnammer-1.2/rnammer &
 
 wait
+
+module unload perl
+module load perl #DBI is missing from 5.30.1, this is temporary
 
 Trinotate Trinotate.sqlite LOAD_tmhmm tmhmm.out 
 Trinotate Trinotate.sqlite LOAD_tmhmm signalp.out 
