@@ -34,15 +34,11 @@ ln -s ../annotation/transcripts.main.fa .
 ln -s ../okayset/combined.okay.fa .
 
 #2) Make script to run BUSCO on all - Needs TESTING
-module unload python
 module load python/3.6.1
 module load busco/3.0.2
 for f in *fa; do run_BUSCO.py -i $f -o ${f%fa}busco -l /N/soft/rhel7/busco/3.0.2/busco-lineage/eukaryota_odb9 -m tran; done
 
 #3) Make script to run quast on all - DONE
-module unload python
-module unload busco
-module load python/2.7.13
 module load quast
 for f in *.fa; do quast.py -o ${f%fa}quast $f; done
 
