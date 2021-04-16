@@ -17,6 +17,8 @@ cd PWDHERE/final_assemblies/annotation
 module load perl/5.30.1
 module load hmmer/3.1
 module load trinotate
+module unload trinityrnaseq   #this is temporary
+module load trinityrnaseq/2.11.0  
 
 cp /N/soft/rhel7/trinotate/3.1.1/Trinotate.sqlite .
 Trinotate Trinotate.sqlite init --gene_trans_map genes_to_transcripts.tsv --transcript_fasta transcripts.main.fa --transdecoder_pep transcripts.reformated.aa
