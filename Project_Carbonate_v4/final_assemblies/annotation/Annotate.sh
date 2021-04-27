@@ -14,6 +14,7 @@ h) echo "################################################";
 esac
 done
 
+module load perl/5.30.1
 module load trinotate
 
 scripts/make_genes_to_transcripts.ba -i *.mainalt.tab -g $prefix
