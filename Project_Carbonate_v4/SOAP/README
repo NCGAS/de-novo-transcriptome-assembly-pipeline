@@ -3,7 +3,7 @@ You can run SOAP as described in the main README - run the 1 and 1b at the same 
 There are two major considerations in the configuration of SOAP - PLEASE DO NOT SKIP THESE!
 
 insert length - the default is 100bp insert, though 400 is MUCH more common.
-read length - this changes with time, the default is 100bp, but other options are 75bp, 100bp, 150bp, 250bp, or 300bp
+read length - this changes with time, the default is 150bp, but other options are 75bp, 100bp, 150bp, 250bp, or 300bp
 
 SOAP manual: https://github.com/aquaskyline/SOAPdenovo-Trans
 SOAP license: https://www.gnu.org/licenses/gpl-3.0-standalone.html
