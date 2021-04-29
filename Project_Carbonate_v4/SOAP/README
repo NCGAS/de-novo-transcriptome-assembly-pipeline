@@ -2,7 +2,7 @@ You can run SOAP as described in the main README - run the 1 and 1b at the same 
 
 There are two major considerations in the configuration of SOAP - PLEASE DO NOT SKIP THESE!
 
-insert length - the softward default is 100bp insert, though 400 is MUCH more common.
+insert length - the softward default is 100bp insert, though 400 is MUCH more common so we use this as the pipeline default.
 read length - this changes with time, the software default is 100bp, but other options are 75bp, 100bp, 150bp, 250bp, or 300bp.   We set this value to 150bp in the pipeline setup, so the pipeline default it 150bp, even though the SOAP default is 100bp.
 
 SOAP manual: https://github.com/aquaskyline/SOAPdenovo-Trans
