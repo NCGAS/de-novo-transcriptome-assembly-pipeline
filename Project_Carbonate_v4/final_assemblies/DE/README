@@ -24,7 +24,7 @@ bash adjust_matrix.sh
 nano samples_described
 
 #run DE, in this case using edgeR (due to lack of three replicates)
-/N/soft/rhel7/trinityrnaseq/2.11.0/Analysis/DifferentialExpression/run_DE_analysis.pl --matrix matrix --method edgeR --samples_file samples described
+/N/soft/rhel7/trinityrnaseq/2.11.0/Analysis/DifferentialExpression/run_DE_analysis.pl --matrix matrix --method edgeR --samples_file samples_described
 
 #run DE analyses (in this case using p=.5 due to the fact this was based on a toy data set with no DE
 cd edgeR.*/ 
