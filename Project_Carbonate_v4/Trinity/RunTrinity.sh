@@ -11,7 +11,7 @@
 #SBATCH --mem=220gb
 #SBATCH --time=4-0:0:00 
 
-module load trinityrnaseq/2.6.6
+module load trinityrnaseq/2.11.0
 
 cd PWDHERE/Trinity
 
