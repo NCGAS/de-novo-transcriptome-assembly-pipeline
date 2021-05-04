@@ -7,7 +7,7 @@
 #SBATCH --mail-type=FAIL,BEGIN,END 
 #SBATCH --mail-user=
 #SBATCH --nodes=1 
-#SBATCH --ntasks-per-node=2
+#SBATCH --ntasks-per-node=16
 #SBATCH --mem=100gb
 #SBATCH --time=72:00:00 
 
