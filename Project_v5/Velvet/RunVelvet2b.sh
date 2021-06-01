@@ -5,7 +5,7 @@
 #SBATCH -o Velvet2b_%j.log
 #SBATCH -e Velvet2b_%j.err 
 #SBATCH --mail-type=FAIL,BEGIN,END 
-#SBATCH --mail-user=ss93@iu.edu
+#SBATCH --mail-user=
 #SBATCH --nodes=1 
 #SBATCH --ntasks-per-node=2
 #SBATCH --cpus-per-task=1
@@ -13,12 +13,12 @@
 #SBATCH --time=03:00:00 
 
 ##Move to correct WD
-cd /N/slate/ss93/Full_set/transcriptome-workshop-SP2021/Project_v5/Velvet
+cd PWDHERE/Velvet
 
-export PATH=/N/slate/ss93/Full_set/transcriptome-workshop-SP2021/Project_v5/software/Velvet:$PATH
+export PATH=PWDHERE/software/Velvet:$PATH
 
 #input define
-reads=/N/slate/ss93/Full_set/transcriptome-workshop-SP2021/Project_v5/input_files/reads-norm.fq
+reads=PWDHERE/input_files/reads-norm.fq
 
 ##run code
 velvetg oases.65 -read_trkg yes &

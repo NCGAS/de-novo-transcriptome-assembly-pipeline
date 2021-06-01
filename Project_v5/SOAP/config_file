@@ -12,4 +12,4 @@ asm_flags=3
 #minimum aligned length to contigs for a reliable read location (at least 32 for short insert size)
 map_len=32
 #fastq file for unpaired reads
-q=/N/slate/ss93/Full_set/transcriptome-workshop-SP2021/Project_v5/input_files/reads-norm.fq
+q=PWDHERE/input_files/reads-norm.fq

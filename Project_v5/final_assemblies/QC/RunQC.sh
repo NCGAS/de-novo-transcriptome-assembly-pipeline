@@ -5,13 +5,13 @@
 #SBATCH -o QC_%j.log
 #SBATCH -e QC_%j.err 
 #SBATCH --mail-type=FAIL,BEGIN,END 
-#SBATCH --mail-user=ss93@iu.edu
+#SBATCH --mail-user=
 #SBATCH --nodes=1 
 #SBATCH --ntasks-per-node=1
 #SBATCH --mem=10gb
 #SBATCH --time=12:00:00 
 
-cd /N/slate/ss93/transcriptome-workshop-SP2021/Project_Carbonate_v4/final_assemblies/QC
+cd PWDHERE/final_assemblies/QC
 
 #This is a means by which to check the different metrics for each of your 
 #subassemblies, as well as your main assembly. Sometimes the CDTA will not be 
@@ -34,12 +34,12 @@ ln -s ../annotation/transcripts.main.fa .
 ln -s ../okayset/combined.okay.fa .
 
 #2) Make script to run BUSCO on all - Needs TESTING
-export PATH="/N/slate/ss93/Full_set/transcriptome-workshop-SP2021/Project_v5/software/BUSCO/:$PATH"
+export PATH="PWDHERE/software/BUSCO/:$PATH"
 
 for f in *fa; do run_BUSCO.py -i $f -o ${f%fa}busco -l /N/soft/rhel7/busco/3.0.2/busco-lineage/eukaryota_odb9 -m tran; done
 
 #3) Make script to run quast on all - DONE
-export PATH="/N/slate/ss93/Full_set/transcriptome-workshop-SP2021/Project_v5/software/QUAST/:$PATH"
+export PATH="PWDHERE/software/QUAST/:$PATH"
 for f in *.fa; do quast.py -o ${f%fa}quast $f; done
 
 #4) Make script to combine into a table

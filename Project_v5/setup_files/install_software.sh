@@ -32,22 +32,23 @@ fi
 
 singcheck
 #assembly
-install TransABySS /N/slate/ss93/Full_set/transcriptome-workshop-SP2021/Project_v5/software/TransABySS/*.sif
-install SOAP /N/slate/ss93/Full_set/transcriptome-workshop-SP2021/Project_v5/software/SOAPdenovo/*.sif
-install Velvet /N/slate/ss93/Full_set/transcriptome-workshop-SP2021/Project_v5/software/Velvet/*.sif
-install Trinity /N/slate/ss93/Full_set/transcriptome-workshop-SP2021/Project_v5/software/Trinity/*.sif
-install EviGene /N/slate/ss93/Full_set/transcriptome-workshop-SP2021/Project_v5/software/EviGene/*.sif
+install TransABySS PWDHERE/software/TransABySS/*.sif
+install SOAP PWDHERE/software/SOAPdenovo/*.sif
+install Velvet PWDHERE/software/Velvet/*.sif
+install Trinity PWDHERE/software/Trinity/*.sif
+install EviGene PWDHERE/software/EviGene/*.sif
 
 #annotation
-install Trinotate /N/slate/ss93/Full_set/transcriptome-workshop-SP2021/Project_v5/software/Trinotate/*.sif
-install Hmmer /N/slate/ss93/Full_set/transcriptome-workshop-SP2021/Project_v5/software/Hmmer/*.sif
-install BLAST /N/slate/ss93/Full_set/transcriptome-workshop-SP2021/Project_v5/software/Blast/*.sif
-install SignalP /N/slate/ss93/Full_set/transcriptome-workshop-SP2021/Project_v5/software/SignalP/*.sif
-install TmHmm /N/slate/ss93/Full_set/transcriptome-workshop-SP2021/Project_v5/software/TmHmm/*.sif
+install Trinotate PWDHERE/software/Trinotate/*.sif
+install Hmmer PWDHERE/software/Hmmer/*.sif
+install BLAST PWDHERE/software/Blast/*.sif
+install SignalP PWDHERE/software/SignalP/*.sif
+install TmHmm PWDHERE/software/TmHmm/*.sif
 
 #QC
-install Quast /N/slate/ss93/Full_set/transcriptome-workshop-SP2021/Project_v5/software/Quast/*.sif
-install BUSCO /N/slate/ss93/Full_set/transcriptome-workshop-SP2021/Project_v5/software/BUSCO/*.sif
+install Quast PWDHERE/software/Quast/*.sif
+install BUSCO PWDHERE/software/BUSCO/*.sif
 
 #DE (also needs trinity)
-install Kallisto /N/slate/ss93/Full_set/transcriptome-workshop-SP2021/Project_v5/software/Kallisto/*.sif
+install Kallisto PWDHERE/software/Kallisto/*.sif
+

@@ -5,7 +5,7 @@
 #SBATCH -o SOAP1_%j.log
 #SBATCH -e SOAP1_%j.err 
 #SBATCH --mail-type=FAIL,BEGIN,END
-#SBATCH --mail-user=ss93@iu.edu
+#SBATCH --mail-user=
 #SBATCH --nodes=1 
 #SBATCH --ntasks-per-node=3
 #SBATCH --cpus-per-task=2
@@ -13,10 +13,10 @@
 #SBATCH --time=24:00:00
 
 ##Move to correct WD
-cd /N/slate/ss93/Full_set/transcriptome-workshop-SP2021/Project_v5/SOAP
+cd PWDHERE/SOAP
 
 ##load modules
-export PATH=/N/slate/ss93/Full_set/transcriptome-workshop-SP2021/Project_v5/software/SOAPdenovo:$PATH
+export PATH=PWDHERE/software/SOAPdenovo:$PATH
 
 ##run code
 SOAPdenovo-Trans-127mer all -s config_file -K 35 -o output35 &

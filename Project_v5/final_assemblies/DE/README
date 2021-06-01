@@ -3,8 +3,8 @@
 #For more information on selecting software to use in DE, see our lecture on differential gene expression - ppt here: https://iu.app.box.com/s/3xo07ugnl7d3q2p2hy4qy0ow1n7blhtn/file/322723696063
 
 #load modules
-export PATH=/N/slate/ss93/Full_set/transcriptome-workshop-SP2021/Project_v5/software/Trinity:$PATH
-export PATH=/N/slate/ss93/Full_set/transcriptome-workshop-SP2021/Project_v5/software/Kallisto:$PATH
+export PATH=PWDHERE/software/Trinity:$PATH
+export PATH=PWDHERE/software/Kallisto:$PATH
 
 #make an index of the transcriptome with kallisto
 #cp ../okayset/combined.okay.fa .

@@ -5,16 +5,16 @@
 #SBATCH -o EviGene_%j.log
 #SBATCH -e EviGene_%j.err 
 #SBATCH --mail-type=FAIL,BEGIN,END 
-#SBATCH --mail-user=ss93@iu.edu
+#SBATCH --mail-user=
 #SBATCH --nodes=1 
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=3
 #SBATCH --mem=200gb
 #SBATCH --time=12:00:00 
 
-export PATH=/N/slate/ss93/Full_set/transcriptome-workshop-SP2021/Project_v5/software/EviGene/:$PATH
+export PATH=PWDHERE/software/EviGene/:$PATH
 
-cd /N/slate/ss93/Full_set/transcriptome-workshop-SP2021/Project_v5/final_assemblies
+cd PWDHERE/final_assemblies
 
 tr2aacds.pl -tidy -NCPU 3 -MAXMEM 131072 -log -cdna combined.fa
 

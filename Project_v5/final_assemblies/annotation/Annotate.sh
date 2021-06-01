@@ -14,8 +14,8 @@ h) echo "################################################";
 esac
 done
 
-export PATH=/N/slate/ss93/Full_set/transcriptome-workshop-SP2021/Project_v5/software/Trinotate:$PATH
-export PATH=/N/slate/ss93/Full_set/transcriptome-workshop-SP2021/Project_v5/software/Hmmer:$PATH
+export PATH=PWDHERE/software/Trinotate:$PATH
+export PATH=PWDHERE/software/Hmmer:$PATH
 
 bash scripts/make_genes_to_transcripts.ba -i *.mainalt.tab -g $prefix
 bash scripts/convert_aa.ba -t genes_to_transcripts.tsv -f transcripts.main.aa

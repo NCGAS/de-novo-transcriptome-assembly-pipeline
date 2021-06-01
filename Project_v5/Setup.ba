@@ -53,10 +53,6 @@ for f in final_assemblies/*/Run*; do p=`pwd`; sed -E -i "s|PWDHERE/final_assembl
 
 rm tmp1
 
-#Handle software 
-#export PATH=`pwd`/software/Trinity:`pwd`/software/TransABYSS:`pwd`/software/SOAPdenovo:`pwd`/software/Velvet:`pwd`/software/EviGene:$PATH
-###handle $STORAGE -> container binding!
-
 #Handle Read Length
 sed -i -e "s/max_rd_len=[0-9]*/max_rd_len=$READLEN/g" -e "s/rd_len_cutof=[0-9]*/rd_len_cutof=$READLEN/g" SOAP/config_file
 
