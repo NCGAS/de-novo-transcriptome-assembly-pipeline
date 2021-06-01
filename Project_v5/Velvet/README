@@ -1,0 +1,9 @@
+As stated in the top README, you can qsub the 1s at the same time, then the 2s, then the 3s.  
+
+You MUST wait for 1 to finish before launching 2, or 3.
+After you are done, run ./Combine.sh
+
+NOTE: Please check the read length settings in the options for Velvet.
+
+Velvet Manual: https://www.ebi.ac.uk/~zerbino/velvet/Manual.pdf
+Velvet Licence: https://www.gnu.org/licenses/gpl-2.0-standalone.html

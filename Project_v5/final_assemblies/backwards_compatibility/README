@@ -1,0 +1,59 @@
+#Here are the instructions for making a transcriptome that was completed before version 4 compatible with the annotation add-on in version 4:
+
+#Remove all / from Velvet output:
+sed -i 's/\///g' okayset/combined.okay.fa
+sed -i 's/\///g' okayset/combined.okalt.fa
+sed -i 's/\///g' okayset/combined.okay.aa
+sed -i 's/\///g' okayset/combined.okalt.aa
+
+#Reformat Assembler.k.name to Assembler_k_name:
+sed -i -E 's/([A-Za-z]).(k..)./\1_\2_/g' okayset/combined.okay.fa
+sed -i -E 's/([A-Za-z]).(k..)./\1_\2_/g' okayset/combined.okalt.fa
+sed -i -E 's/([A-Za-z]).(k..)./\1_\2_/g' okayset/combined.okay.aa
+sed -i -E 's/([A-Za-z]).(k..)./\1_\2_/g' okayset/combined.okalt.aa
+
+#Fix the trclass file as well:
+sed -E -i 's/([A-Za-z]).(k..)./\1_\2_/g' combined.trclass
+sed -E -i 's/(Velvet[A-Za-z0-9_]*)(.)([^[:blank:]]*)/\1\3/g' combined.trclass
+
+#grab the new scripts:
+pull the annotation directory from git: https://github.com/vika19/ncgas_denovo_transcriptome_pipeline/tree/master/final_assemblies/annotation
+you want to have PROJECT_DIR/final_assemblies/annotation, with the annotation.sh file and the scripts directory in there as well.
+
+#make the main to alternative tabular file:
+/N/soft/rhel7/evigene/gnu/2013.07.27/scripts/prot/trclass2mainalt.pl -trclass *trclass
+mv *mainalt.tab annotation/
+
+#combine okay and okalt
+cat okayset/combined.okay.fa okayset/combined.okalt.fa > annotation/transcripts.fa
+cat okayset/combined.okay.aa okayset/combined.okalt.aa > annotation/transcripts.aa
+
+#go to annotation dir
+cd annotation
+
+#grab Trinotate.sqlite
+cp /N/soft/rhel7/trinotate/3.1.1/Trinotate.sqlite annotation/
+
+#Run prep scripts:
+./Annotate.sh -p NAME_PREFIX
+
+where "NAME_PREFIX" is the name you want to have as the final name for your transcripts (i.e. Mgallopavo will yield names like "Mgallopavo1" linked to all versions of that locus - the main and the alts).  
+
+From the README:
+
+At this point you will have an initialized Trinotate database.  You will now have the following files:
+combined.mainalt.tab              a table listing the longest form (first column) and all alternate forms (remaining columns)
+genes_to_transcripts.tsv   a table listing the final name of the gene and the different forms from the table above 
+
+transcripts.fa                      the original okay and okalt files concatonated together
+transcripts.main.fa               the subset of transcripts that represent UNIQUE main and alternate forms of genes
+transcripts.main.renamed.fa  the subset above, but with the final gene name added to the beginning of the header
+
+transcripts.aa           the original okay and okalt files concatonated together, in amino acid form
+transcripts.main.aa             the subset of transcripts that represent UNIQUE main and alternate forms of genes, in amino acid form
+transcripts.main.renamed.aa       the subset above, but with the final gene name added to the beginning of the header 
+
+Trinotate.sqlite          the initialized annoatation database to be used with Trinotate
+
+You should continue with the Trinotate steps, using the transcripts.main.fa and transcripts.reformated.aa files.  DO NOT continue with the *main.renamed* files, as these will not import into the database correctly.
+

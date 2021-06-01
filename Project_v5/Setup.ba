@@ -1,0 +1,81 @@
+#!/bin/sh
+if [ $# -eq 0 ]
+then 
+	echo "Please use the following syntax:"
+	echo ""
+	echo "Setup.ba -e jdoe@university.edu -s single -r 150"
+	echo "or"
+	echo "Setup.ba -e jdoe@university.edu -s paired -r 150 -i 400"
+	echo ""
+	echo "or use -h for more details."
+	echo ""
+	exit 0
+fi
+
+#Set Defaults
+READLEN=150
+INSERT=400
+STORAGE="/N/home/,/N/slate,/N/project"
+
+while getopts b:e:s:r:i:hcd option
+do 
+case "${option}"
+in
+b) STORAGE=${OPTARG};;
+e) EMAIL=${OPTARG};;
+s) STRAND=${OPTARG};;
+h) echo "The options are as follows"
+   echo "   -e:  sets your email for job handler, allowing you to know when your jobs are running, stopped, or complete.  This is also the email errors will be emailed to."
+   echo "   -s:  sets your analysis to either single or paired reads, adjusting all needed scripts to allow this."
+   echo "   -i:  sets your insert length (use for paired reads only, default is 400)"
+   echo "   -r:  sets your read length (default is 150bp)"
+   echo "   -h:  prints this help menu"
+   echo "   -c:  prints citations for software used"
+   echo "   -d:  download containers"
+   exit 0;;
+r) READLEN=${OPTARG};;
+i) INSERT=${OPTARG};;
+c) cat ./setup_files/citations; exit 0;;
+d) bash ./setup_files/install_software.sh; exit 0;;
+esac
+done
+
+#Message out
+echo "Note: this may take a few minutes"
+
+#Handle EMAIL and PWD set up
+for f in */Run*; do sed -i "s/#SBATCH --mail-user=.*/#SBATCH --mail-user=$EMAIL/g" $f 2>tmp1; done
+for f in final_assemblies/*/Run*; do sed -i "s/#SBATCH --mail-user=.*/#SBATCH --mail-user=$EMAIL/g" $f 2>tmp1; done
+
+for f in */*; do p=`pwd`; sed -i "s|PWDHERE|$p|g" $f 2>tmp1; done
+for f in software/*/*; do p=`pwd`; sed -i "s|PWDHERE|$p|g" $f 2>tmp1; done
+for f in final_assemblies/*/Run*; do p=`pwd`; sed -E -i "s|PWDHERE/final_assemblies/([A-Za-z]*)|$p/final_assemblies/\1|g" $f 2>tmp1; done
+
+rm tmp1
+
+#Handle software 
+#export PATH=`pwd`/software/Trinity:`pwd`/software/TransABYSS:`pwd`/software/SOAPdenovo:`pwd`/software/Velvet:`pwd`/software/EviGene:$PATH
+###handle $STORAGE -> container binding!
+
+#Handle Read Length
+sed -i -e "s/max_rd_len=[0-9]*/max_rd_len=$READLEN/g" -e "s/rd_len_cutof=[0-9]*/rd_len_cutof=$READLEN/g" SOAP/config_file
+
+#Handle STRAND set up and INSERT if paired
+#Default is "paired"
+  if [ "$STRAND" == "paired" ]; then
+    if [ -f ./setup_files/paired.set ]; then sed -i "s/avg_ins=[0-9]*/avg_ins=$INSERT/g" SOAP/config_file; sed -i "s/ins_length [0-9]*/ins_length $INSERT/g" Velvet/RunVelvet2*
+    else touch ./setup_files/paired.set && rm ./setup_files/single.set && patch -Rsp1 < ./setup_files/single2paired; sed -i "s/avg_ins=[0-9]*/avg_ins=$INSERT/g" SOAP/config_file; sed -i "s/ins_length [0-9]*/ins_length $INSERT/g" Velvet/RunVelvet2*
+    fi
+  elif [ "$STRAND" == "single" ]; then 
+    if [ -f ./setup_files/single.set ]; then :
+    else touch ./setup_files/single.set && rm ./setup_files/paired.set && patch -Rsp1 < ./setup_files/paired2single
+    fi
+  else
+    echo "Please select single or paired for the -s option"
+    exit 1
+  fi
+
+
+echo "Email set to $EMAIL"
+echo "Strand set to $STRAND"
+echo "Project Location set to $p - please note this only works the first time"

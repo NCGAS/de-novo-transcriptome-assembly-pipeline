@@ -1,0 +1,54 @@
+#!/bin/bash
+#This is an example script for running differential expression analyses using the output from evigenes.
+#For more information on selecting software to use in DE, see our lecture on differential gene expression - ppt here: https://iu.app.box.com/s/3xo07ugnl7d3q2p2hy4qy0ow1n7blhtn/file/322723696063
+
+#load modules
+export PATH=/N/slate/ss93/Full_set/transcriptome-workshop-SP2021/Project_v5/software/Trinity:$PATH
+export PATH=/N/slate/ss93/Full_set/transcriptome-workshop-SP2021/Project_v5/software/Kallisto:$PATH
+
+#make an index of the transcriptome with kallisto
+#cp ../okayset/combined.okay.fa .
+#kallisto index -i combined_kal_index combined.okay.fa
+
+#quantify transcripts - in this case we are using individual samples that were parked in the input_files folder before being combined into left.fa and right.fa
+#generally a good idea to end output files in "_kallisto" for use with ./adjust_matrix.sh script
+#kallisto quant -i combined_kal_index -o Sample1N_0min_kallisto --fragment-length=75 --sd=0.1 --single ../../input_files/GSF1664-0-min-1neg_S10_R1_001.fastq 
+#kallisto quant -i combined_kal_index -o Sample2N_0min_kallisto --fragment-length=75 --sd=0.1 --single ../../input_files/GSF1664-0-min-1pos_S7_R1_001.fastq
+#kallisto quant -i combined_kal_index -o Sample3N_0min_kallisto --fragment-length=75 --sd=0.1 --single ../../input_files/GSF1664-0-min-3neg_S12_R1_001.fastq
+
+#kallisto quant -i combined_kal_index -o Sample1P_0min_kallisto --fragment-length=75 --sd=0.1 --single ../../input_files/GSF1664-0-min-1pos_S7_R1_001.fastq
+#kallisto quant -i combined_kal_index -o Sample2P_0min_kallisto --fragment-length=75 --sd=0.1 --single ../../input_files/GSF1664-0-min-2pos_S8_R1_001.fastq
+#kallisto quant -i combined_kal_index -o Sample3P_0min_kallisto --fragment-length=75 --sd=0.1 --single ../../input_files/GSF1664-0-min-3pos_S9_R1_001.fastq 
+
+#kallisto quant -i combined_kal_index -o Sample1N_10min_kallisto --fragment-length=75 --sd=0.1 --single ../../input_files/GSF1664-10-min-1neg_S16_R1_001.fastq
+#kallisto quant -i combined_kal_index -o Sample2N_10min_kallisto --fragment-length=75 --sd=0.1 --single ../../input_files/GSF1664-10-min-2neg_S17_R1_001.fastq
+#kallisto quant -i combined_kal_index -o Sample3N_10min_kallisto --fragment-length=75 --sd=0.1 --single ../../input_files/GSF1664-10-min-3neg_S18_R1_001.fastq
+
+#kallisto quant -i combined_kal_index -o Sample1P_10min_kallisto --fragment-length=75 --sd=0.1 --single ../../input_files/GSF1664-10-min-1pos_S13_R1_001.fastq
+#kallisto quant -i combined_kal_index -o Sample2P_10min_kallisto --fragment-length=75 --sd=0.1 --single ../../input_files/GSF1664-10-min-2pos_S14_R1_001.fastq
+#kallisto quant -i combined_kal_index -o Sample3P_10min_kallisto --fragment-length=75 --sd=0.1 --single ../../input_files/GSF1664-10-min-3pos_S15_R1_001.fastq
+
+#kallisto quant -i combined_kal_index -o Sample1N_30min_kallisto --fragment-length=75 --sd=0.1 --single ../../input_files/GSF1664-30-min-1neg_S22_R1_001.fastq
+#kallisto quant -i combined_kal_index -o Sample2N_30min_kallisto --fragment-length=75 --sd=0.1 --single ../../input_files/GSF1664-30-min-2neg_S23_R1_001.fastq
+#kallisto quant -i combined_kal_index -o Sample3N_30min_kallisto --fragment-length=75 --sd=0.1 --single ../../input_files/GSF1664-30-min-3neg_S24_R1_001.fastq
+
+#kallisto quant -i combined_kal_index -o Sample1P_30min_kallisto --fragment-length=75 --sd=0.1 --single ../../input_files/GSF1664-30-min-1pos_S19_R1_001.fastq
+#kallisto quant -i combined_kal_index -o Sample2P_30min_kallisto --fragment-length=75 --sd=0.1 --single ../../input_files/GSF1664-30-min-2pos_S20_R1_001.fastq
+#kallisto quant -i combined_kal_index -o Sample3P_30min_kallisto --fragment-length=75 --sd=0.1 --single ../../input_files/GSF1664-30-min-3pos_S21_R1_001.fastq
+
+#make a table using custom scripts to combine above count files
+#make required changes to the adjust_matrix.sh file - namely the header desired!
+#bash adjust_matrix.sh
+
+#annotate your sample design according to trinity's documentation
+#nano samples_described
+
+#run DE, in this case using edgeR (due to lack of three replicates)
+#run_DE_analysis.pl --matrix matrix --method edgeR --samples_file samples_described
+
+#run DE analyses (in this case using p=.5 due to the fact this was based on a toy data set with no DE
+cd edgeR.*/ 
+#analyze_diff_expr.pl --matrix ../matrix -P 5e-2 -C 2 --sample ../samples_described
+
+#run clustering
+define_clusters_by_cutting_tree.pl -R diffExpr.*.matrix.RData --Ptree 60

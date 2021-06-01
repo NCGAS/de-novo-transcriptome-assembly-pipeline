@@ -1,0 +1,26 @@
+The QC script will do the following: 
+
+1) Make script to symlink all assemblies here
+2) Make script to run BUSCO on all
+3) Make script to run quast on all
+4) Make script to combine into a tables
+
+The main output (along with folders for quast and busco, if you want to dive deeper into the results) are the following:
+a) BUSCO.table - a table of only the busco results
+b) quast.table - a table of only the quast results
+c) QC.table - a tab deliminated table of all the results combined
+
+To read the table it is best to use:
+less -S QC.table 
+
+This command will stop line wrapping, allowing you to scroll through the table.
+
+
+BUSCO documentation: https://buscos.ezlab.org/
+Quast documentation: http://quast.bioinf.spbau.ru/manual.html
+BUSCO license: https://gitlab.com/ezlab/busco/blob/master/LICENSE
+Quast license: https://www.gnu.org/licenses/gpl-2.0-standalone.html
+
+
+Thanks to Juliet Wong of UCSB for the inspiration!
+

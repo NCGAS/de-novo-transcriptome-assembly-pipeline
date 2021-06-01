@@ -1,0 +1,35 @@
+You should see the following files in the annotation folder:
+Annotate.sh  
+combined.mainalt.tab  
+README  
+scripts/  
+transcripts.aa  
+transcripts.fa  
+Trinotate.sqlite
+
+This is how you will know the previous step was completed fully.  Edit the RunAnnotate.sh file to have the NAME_PREFIX changed to something sane:
+
+./Annotate.sh -p NAME_PREFIX
+
+where NAME_PREFIX is the final naming prefix you'd like for all your transcripts.  Please do not use any special characters here, such as ".".  
+
+i.e. ./Annotate.sh -p Alat #for A laterale, the Blue spotted salamander
+
+At this point you will have an initialized Trinotate database.  You will now have the following files:
+combined.mainalt.tab      	  a table listing the longest form (first column) and all alternate forms (remaining columns)
+genes_to_transcripts.tsv  	  a table listing the final name of the gene and the different forms from the table above 
+
+transcripts.fa       		      the original okay and okalt files concatonated together
+transcripts.main.fa  		      the subset of transcripts that represent UNIQUE main and alternate forms of genes
+transcripts.main.renamed.fa	  the subset above, but with the final gene name added to the beginning of the header
+
+transcripts.aa  		          the original okay and okalt files concatonated together, in amino acid form
+transcripts.main.aa  		      the subset of transcripts that represent UNIQUE main and alternate forms of genes, in amino acid form
+transcripts.main.renamed.aa  	the subset above, but with the final gene name added to the beginning of the header 
+
+Trinotate.sqlite		the initialized annotation database to be used with Trinotate
+
+You should continue with the Trinotate steps, using the transcripts.main.fa and transcripts.main.aa files.  DO NOT continue with the *main.renamed* files, as these will not import into the database correctly.
+These are all in the RunTrinotate.sh job.
+
+Trinotate manual: https://github.com/Trinotate/Trinotate.github.io/wiki

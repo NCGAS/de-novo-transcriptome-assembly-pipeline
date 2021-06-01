@@ -1,0 +1,25 @@
+#!/usr/bin/bash
+
+while getopts i:g:h option
+do 
+case "${option}" in 
+g) gene=${OPTARG};;
+i) input=${OPTARG};;
+h) echo "################################################";
+   echo "use the following syntax:";
+   echo "";
+   echo "./make_genes_to_transcripts.ba -i INPUT -g GENE_NAME"; 
+   echo "";
+   echo "where GENE_NAME is the gene naming prefix you'd";
+   echo "like to use for your final annotations" ;
+   echo "and INPUT is the input mainalt.tab file" ;
+   echo "################################################"
+   exit 0;;
+esac
+done
+
+sed 1d $input | awk '{if ($2=="main" || $2=="noclass") print $1, $3}' | sed -E -e 's/,/\t/g' -e 's|\/[a-zA-Z0-9]*$||g' -e 's|\/[a-zA-Z0-9]*\t|\t|g'| cat -n | less -S | awk '{for (i = 2; i<=NF; i++) print "'$gene'"$1, $i}' | sed 's/\ /\t/g' > genes_to_transcripts.tsv
+
+perl scripts/subset_fasta.pl -i <(awk '{print $2}' genes_to_transcripts.tsv ) transcripts.fa > transcripts.main.fa
+perl scripts/subset_fasta.pl -i <(awk '{print $2}' genes_to_transcripts.tsv ) transcripts.aa > transcripts.main.aa
+

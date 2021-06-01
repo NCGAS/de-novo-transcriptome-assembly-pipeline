@@ -1,3 +1,5 @@
+BONUS: The setup script will now pull software in the Setup.ba step.  If you have the software pre-installed, please comment out the software you do not need from /setup_scripts/install_software.ba, and add the software to your PATH before running the workflow.
+
 ## List of the programs required for the pipeline
 
 - ### Trinity v2.8.4 ###

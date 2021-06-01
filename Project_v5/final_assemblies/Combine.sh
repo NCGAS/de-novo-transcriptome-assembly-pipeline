@@ -1,0 +1,1 @@
+cat *.fa >> combined.fa

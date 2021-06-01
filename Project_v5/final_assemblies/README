@@ -1,0 +1,32 @@
+Once you've completed all the assemblies in the top folder (Trinity, TransAbyss, Velvet, and SOAP) and run the ./Combine.sh scripts for each assembler, you will see a file here with the assembly name, i.e. Trinity.fa.
+
+First, run the ./Combine.sh script in the final_assemblies directory. This will put all the assemblies together as input for Evigenes.
+After you get a "combined.fa" file, run RunEvigenes.sh.
+
+This will give you several output folders:
+inputset:	This is a breakdown of the file you input, as a fa, cds, and aa translation
+okayset:	This includes two major sets: *.okay.* and *.okalt.*.  The okay files are the longest ("best") single version of a transcript.  Transcripts that are similar but not identical are stored in the okalt (alternative forms).  You can find the link between the two - see the documentation for evigenes at http://arthropods.eugenes.org/genes2/about/EvidentialGene_trassembly_pipe.html or email help@ncgas.org
+dropset:	This is a set of transcripts that were dropped for various reasons (each is labeled as to why) - they were perfect duplicates, they lacked the appearance of real transcripts (no cds), etc.  See documentation for descriptions!
+
+Typically, the *.okay.* set is a good putative, filtered transcriptome for you to start with.  It aims to have one representative per loci, which is ideal for mapping/DE/etc.  DO continue with QC.
+
+Ideas for QC:
+Quality stat programs (quast is painless):
+	N50 
+	Transcript length – what are you expectations?
+	Gene/isoform ratio – what are your expectations?
+	Length metrics - > 1000bp, >5000 bp, >25,000bps
+
+Correctness
+	Blast to a similar organism
+	GC – does this match expected?
+
+Completeness
+	BUSCO – works on transcriptomes too!
+	Blast to a similar organism (how much overlap?)
+
+Evigene Documentation: http://arthropods.eugenes.org/EvidentialGene/trassembly.html
+Evigene Blog Explaining what is going on: https://blogs.iu.edu/ncgas/2018/12/17/how-evigene-works/
+
+Useful scripts downstream:
+Subsetting fasta - in the final_assemblies/annotation/scripts folder there is a script called subset_fasta.pl.  It is very useful for separating out a list of fasta, such as isolating just the differentially expressed transcripts or ones that have a certain annotation.  Syntax is: subset_fasta.pl -i list < full.fa > subset.fa

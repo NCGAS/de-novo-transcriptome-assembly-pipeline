@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ ! $(command -v singularity) ]; then
+        module load singularity
+fi
+
+VERSION=3.2.1
+PACKAGE=trinotate
+TOOL=/usr/local/bin/Build_Trinotate_Boilerplate_SQLite_db.pl
+DIRECTORY=/N/slate/ss93/Full_set/transcriptome-workshop-SP2021/Project_v5/software/Trinotate
+STORAGE=/N/home,/N/slate,/N/project
+
+OPTIONS=$OPTIONS" -B $STORAGE"
+
+singularity exec $OPTIONS $DIRECTORY/singularity-$PACKAGE-$VERSION.sif $TOOL "$@"
