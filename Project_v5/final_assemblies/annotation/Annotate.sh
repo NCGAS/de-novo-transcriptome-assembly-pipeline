@@ -19,7 +19,7 @@ export PATH=PWDHERE/software/Hmmer:$PATH
 
 bash scripts/make_genes_to_transcripts.ba -i *.mainalt.tab -g $prefix
 bash scripts/convert_aa.ba -t genes_to_transcripts.tsv -f transcripts.main.aa
-perl Build_Trinotate_Boilerplate_SQLite_db.pl Trinotate
+Build_Trinotate_Boilerplate_SQLite_db.pl Trinotate
 
 Trinotate Trinotate.sqlite init --gene_trans_map genes_to_transcripts.tsv --transcript_fasta transcripts.main.fa --transdecoder_pep transcripts.reformated.aa 
 gzip -d Pfam-A.hmm.gz
