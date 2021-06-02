@@ -7,7 +7,7 @@ fi
 VERSION=1.04
 PACKAGE=soapdenovotrans
 TOOL=SOAPdenovo-Trans-127mer
-DIRECTORY=/N/slate/ss93/Full_set/transcriptome-workshop-SP2021/Project_v5/software/SOAPdenovo
+DIRECTORY=PWDHERE/software/SOAPdenovo
 STORAGE=/N/slate,/N/project,/N/u
 
 OPTIONS=$OPTIONS" -B $STORAGE"
