@@ -7,7 +7,7 @@ fi
 VERSION=2.0c
 PACKAGE=tmhmm
 TOOL="perl /usr/local/tmhmm-2.0c/bin/tmhmm"
-DIRECTORY=/N/slate/ss93/Full_set/transcriptome-workshop-SP2021/Project_v5/software/TmHmm
+DIRECTORY=PWDHERE/software/TmHmm
 STORAGE=/N/home,/N/project,/N/slate
 
 OPTIONS=$OPTIONS" -B $STORAGE"
