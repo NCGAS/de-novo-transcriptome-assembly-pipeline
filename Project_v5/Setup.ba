@@ -32,7 +32,7 @@ h) echo "The options are as follows"
    echo "   -h:  prints this help menu"
    echo "   -c:  prints citations for software used"
    echo "   -d:  download containers"
-   echo "   -b:  sets bind points for the containers, use commas and no spaces
+   echo "   -b:  sets bind points for the containers, use commas and no spaces"
    exit 0;;
 r) READLEN=${OPTARG};;
 i) INSERT=${OPTARG};;
