@@ -7,7 +7,7 @@ fi
 VERSION=3.1b
 PACKAGE=hmmer
 TOOL=hmmpress
-DIRECTORY=/N/slate/ss93/Full_set/transcriptome-workshop-SP2021/Project_v5/software/Hmmer
+DIRECTORY=PWDHERE/software/Hmmer
 STORAGE=/N/home,/N/slate,/N/project
 
 
