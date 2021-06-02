@@ -11,7 +11,7 @@
 #SBATCH --mem=150gb
 #SBATCH --time=12:00:00 
 
-export PATH=PWDHERE/Trinity:$PATH
+export PATH=PWDHERE/software/Trinity:$PATH
 
 cd PWDHERE/input_files
 
