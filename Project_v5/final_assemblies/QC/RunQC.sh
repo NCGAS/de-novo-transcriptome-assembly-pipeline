@@ -46,7 +46,7 @@ for f in *.fa; do quast.py -o ${f%fa}quast $f; done
 #print names and busco
 echo "Assembly Complete_BUSCOs_(C) Complete_and_single-copy_BUSCOs_(S) Complete_and_duplicated_BUSCOs_(D) Fragmented_BUSCOs_(F) Missing_BUSCOs_(M) Total_BUSCO_groups_searched">BUSCO.table
 
-for f in *.busco/short_summary_*; do tail -n 6 $f | awk -v f=${f%.busco/short_summary_*} 'BEGIN{ORS=" ";print f}{print $1}END{printf "\n"}' ; done >> BUSCO.table
+for f in *.busco/short_summary_*; do tail -n 10 $f | head -n 6 | awk -v f=${f%.busco/short_summary_*} 'BEGIN{ORS=" ";print f}{print $1}END{printf "\n"}' ; done >> BUSCO.table
 
 sed -i 's/run_//g' BUSCO.table
 sed -i 's/fa-final/fa_final/g' BUSCO.table
