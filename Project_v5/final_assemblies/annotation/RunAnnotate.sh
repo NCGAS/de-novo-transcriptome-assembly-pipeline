@@ -14,4 +14,4 @@
 ##Move to correct WD
 cd PWDHERE/final_assemblies/annotation
 
-bash Annotate.sh -p Pcaud
+bash Annotate.sh -p GENE
