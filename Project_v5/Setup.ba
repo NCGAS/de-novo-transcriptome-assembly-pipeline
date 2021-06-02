@@ -32,6 +32,7 @@ h) echo "The options are as follows"
    echo "   -h:  prints this help menu"
    echo "   -c:  prints citations for software used"
    echo "   -d:  download containers"
+   echo "   -b:  sets bind points for the containers, use commas and no spaces
    exit 0;;
 r) READLEN=${OPTARG};;
 i) INSERT=${OPTARG};;
@@ -49,6 +50,7 @@ for f in final_assemblies/*/Run*; do sed -i "s/#SBATCH --mail-user=.*/#SBATCH --
 
 for f in */*; do p=`pwd`; sed -i "s|PWDHERE|$p|g" $f 2>tmp1; done
 for f in software/*/*; do p=`pwd`; sed -i "s|PWDHERE|$p|g" $f 2>tmp1; done
+for f in software/*/*; do sed -i "s|^STORAGE=.*|STORAGE=$STORAGE|g" $f; done
 for f in final_assemblies/*/Run*; do p=`pwd`; sed -E -i "s|PWDHERE/final_assemblies/([A-Za-z]*)|$p/final_assemblies/\1|g" $f 2>tmp1; done
 
 rm tmp1
