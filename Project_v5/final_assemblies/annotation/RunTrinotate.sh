@@ -21,16 +21,15 @@ export PATH=PWDHERE/software/TmHmm:$PATH
 export PATH=PWDHERE/software/Hmmer:$PATH
 export TRINOTATEDB="."
 
-#makeblastdb -in uniprot_sprot.pep -dbtype prot
-#hmmpress Pfam-A.hmm
+makeblastdb -in uniprot_sprot.pep -dbtype prot
 
-#Trinotate Trinotate.sqlite init --gene_trans_map genes_to_transcripts.tsv --transcript_fasta transcripts.main.fa --transdecoder_pep transcripts.reformated.aa
+Trinotate Trinotate.sqlite init --gene_trans_map genes_to_transcripts.tsv --transcript_fasta transcripts.main.fa --transdecoder_pep transcripts.reformated.aa
 
-#hmmscan --cpu 16 --domtblout PFAM.out $TRINOTATEDB/Pfam-A.hmm transcripts.reformated.aa > pfam.log
-#blastx -query transcripts.main.fa -db uniprot_sprot.pep -num_threads 16 -max_target_seqs 1 -outfmt 6 -evalue 1e-3 > blastx.out &
-#blastp -query transcripts.reformated.aa -db uniprot_sprot.pep -num_threads 16 -max_target_seqs 1 -outfmt 6 -evalue 1e-3 > blastp.out &
-#signalp -m transcripts.reformated.aa -n signalp.out -f short
-#tmhmm --short < transcripts.reformated.aa > tmhmm.out &
+hmmscan --cpu 16 --domtblout PFAM.out $TRINOTATEDB/Pfam-A.hmm transcripts.reformated.aa > pfam.log &
+blastx -query transcripts.main.fa -db uniprot_sprot.pep -num_threads 16 -max_target_seqs 1 -outfmt 6 -evalue 1e-3 > blastx.out &
+blastp -query transcripts.reformated.aa -db uniprot_sprot.pep -num_threads 16 -max_target_seqs 1 -outfmt 6 -evalue 1e-3 > blastp.out &
+signalp -m transcripts.reformated.aa -n signalp.out -f short > signalp.out &
+tmhmm --short < transcripts.reformated.aa > tmhmm.out &
 #RnammerTranscriptome.pl --transcriptome transcripts.main.fa --path_to_rnammer /usr/local/rnammer
 wait
 
