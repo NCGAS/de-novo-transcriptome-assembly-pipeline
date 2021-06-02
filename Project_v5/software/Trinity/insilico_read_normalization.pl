@@ -7,7 +7,7 @@ fi
 VERSION=2.11.0
 PACKAGE=Trinity
 TOOL=/usr/local/bin/trinityrnaseq/util/insilico_read_normalization.pl
-DIRECTORY=/N/project/ncgas/staff_sandboxes/ss93/PSCcontainer_trials/Trinity
+DIRECTORY=PWDHERE/Trinity
 STORAGE=/N/slate,/N/project,/N/u
 
 OPTIONS=$OPTIONS" -B $STORAGE"
