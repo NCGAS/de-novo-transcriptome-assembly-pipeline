@@ -7,7 +7,7 @@ fi
 VERSION=3.2.1
 PACKAGE=trinotate
 TOOL=/usr/local/bin/Build_Trinotate_Boilerplate_SQLite_db.pl
-DIRECTORY=/N/slate/ss93/Full_set/transcriptome-workshop-SP2021/Project_v5/software/Trinotate
+DIRECTORY=PWDHERE/software/Trinotate
 STORAGE=/N/home,/N/slate,/N/project
 
 OPTIONS=$OPTIONS" -B $STORAGE"
