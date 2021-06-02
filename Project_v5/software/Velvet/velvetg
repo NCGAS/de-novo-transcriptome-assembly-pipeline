@@ -7,7 +7,7 @@ fi
 VERSION=1.2.10
 PACKAGE=velvet
 TOOL=velvetg
-DIRECTORY=/N/slate/ss93/Full_set/transcriptome-workshop-SP2021/Project_v5/software/Velvet
+DIRECTORY=PWDHERE/software/Velvet
 STORAGE=/N/slate,/N/project,/N/u
 
 OPTIONS=$OPTIONS" -B $STORAGE"
