@@ -7,7 +7,7 @@ fi
 VERSION=3.2.1
 PACKAGE=trinotate
 TOOL=Trinotate
-DIRECTORY=/N/slate/ss93/Full_set/transcriptome-workshop-SP2021/Project_v5/software/Trinotate
+DIRECTORY=PWDHERE/software/Trinotate
 STORAGE=/N/slate,/N/home,/N/project
 
 OPTIONS=$OPTIONS" -B $STORAGE"
