@@ -7,7 +7,7 @@ fi
 VERSION=2.11.0
 PACKAGE=blast
 TOOL=makeblastdb
-DIRECTORY=/N/slate/ss93/Full_set/transcriptome-workshop-SP2021/Project_v5/software/Blast
+DIRECTORY=PWDHERE/software/Blast
 STORAGE=/N/home/,/N/slate,/N/project
 
 OPTIONS=$OPTIONS" -B $STORAGE"
