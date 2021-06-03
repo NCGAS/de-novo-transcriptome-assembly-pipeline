@@ -1,6 +1,7 @@
 #! /bin/bash
 
-source ../setup_files/path_set 
+source ./setup_files/path_set
+echo $PWDHERE
 
 function install {
 SIF="$2"

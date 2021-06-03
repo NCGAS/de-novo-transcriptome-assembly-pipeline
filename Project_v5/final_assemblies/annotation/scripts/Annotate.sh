@@ -18,8 +18,11 @@ source ../../setup_files/path_set
 export PATH=$PWDHERE/software/Trinotate:$PATH
 export PATH=$PWDHERE/software/Hmmer:$PATH
 
+cd $PWDHERE/final_assemblies/annotation
+
 bash scripts/make_genes_to_transcripts.ba -i *.mainalt.tab -g $prefix
 bash scripts/convert_aa.ba -t genes_to_transcripts.tsv -f transcripts.main.aa
+
 Build_Trinotate_Boilerplate_SQLite_db.pl Trinotate
 
 Trinotate Trinotate.sqlite init --gene_trans_map genes_to_transcripts.tsv --transcript_fasta transcripts.main.fa --transdecoder_pep transcripts.reformated.aa

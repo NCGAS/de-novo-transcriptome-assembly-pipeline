@@ -5,7 +5,7 @@
 #SBATCH -o TrinityNorm_%j.log
 #SBATCH -e TrinityNorm_%j.err 
 #SBATCH --mail-type=FAIL
-#SBATCH --mail-user=ss93@iu.edu
+#SBATCH --mail-user=
 #SBATCH --nodes=1 
 #SBATCH --ntasks-per-node=16
 #SBATCH --mem=150gb

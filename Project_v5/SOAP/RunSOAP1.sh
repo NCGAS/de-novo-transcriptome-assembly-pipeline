@@ -5,7 +5,7 @@
 #SBATCH -o SOAP1_%j.log
 #SBATCH -e SOAP1_%j.err 
 #SBATCH --mail-type=FAIL,BEGIN,END
-#SBATCH --mail-user=ss93@iu.edu
+#SBATCH --mail-user=
 #SBATCH --nodes=1 
 #SBATCH --ntasks-per-node=3
 #SBATCH --cpus-per-task=2

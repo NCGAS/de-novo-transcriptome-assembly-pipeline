@@ -6,10 +6,10 @@ rd_len_cutof=100
 #average insert size
 #avg_ins=400 # commented this out since they are unpaired reads
 #if sequence needs to be reversed 
-#reverse_seq=0 #commented this out since they are unpaired reads
+#reverse_se
 #in which part(s) the reads are used
 asm_flags=3
 #minimum aligned length to contigs for a reliable read location (at least 32 for short insert size)
 map_len=32
 #fastq file for unpaired reads
-q=$PWDHERE/input_files/reads-norm.fq
+q=/home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/input_files/reads-norm.fq

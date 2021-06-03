@@ -5,7 +5,7 @@
 #SBATCH -o QC_%j.log
 #SBATCH -e QC_%j.err 
 #SBATCH --mail-type=FAIL,BEGIN,END 
-#SBATCH --mail-user=ss93@iu.edu
+#SBATCH --mail-user=
 #SBATCH --nodes=1 
 #SBATCH --ntasks-per-node=1
 #SBATCH --mem=10gb
@@ -36,7 +36,6 @@ ln -s ../okayset/combined.okay.fa .
 
 #2) Make script to run BUSCO on all - Needs TESTING
 export PATH="$PWDHERE/software/BUSCO/:$PATH"
-echo $PATH
 for f in *fa; do busco -i $f -o ${f%fa}busco -l eukaryota_odb10 -m tran; done
 
 #3) Make script to run quast on all - DONE
