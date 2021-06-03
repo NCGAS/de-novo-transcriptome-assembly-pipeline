@@ -14,7 +14,7 @@
 ##Move to correct WD
 source ../../setup_files/path_set
 
-cd /home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/final_assemblies/annotation
+cd $PWDHERE/final_assemblies/annotation
 
 export PATH=$PWDHERE/software/Trinotate:$PATH
 export PATH=$PWDHERE/software/Blast:$PATH

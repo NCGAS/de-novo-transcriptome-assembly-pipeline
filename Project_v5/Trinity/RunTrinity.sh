@@ -13,12 +13,11 @@
 #SBATCH --time=4-0:0:00 
 
 source ../setup_files/path_set
+cd $PWDHERE/Trinity
 
-cd /home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/Trinity
+export PATH=$PWDHERE/software/Trinity:$PATH
 
-export PATH=/home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/software/Trinity:$PATH
-
-export reads=/home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/input_files/reads-norm.fq
+export reads=$PWDHERE/input_files/reads-norm.fq
 
 Trinity --max_memory 200G --seqType fq  --single $reads --CPU 6 --full_cleanup --output trinity_out_dir 
 

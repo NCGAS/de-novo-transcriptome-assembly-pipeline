@@ -13,11 +13,11 @@
 
 source ../setup_files/path_set 
 
-export PATH=/home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/software/Trinity:$PATH
+export PATH=$PWDHERE/software/Trinity:$PATH
 
-cd /home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/input_files
+cd $PWDHERE/input_files
 
-export reads=/home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/input_files/reads.fq
+export reads=$PWDHERE/input_files/reads.fq
 
 insilico_read_normalization.pl --seqType fq -JM 100G --max_cov 30 --single $reads --PARALLEL_STATS --CPU 16
-ln -s /home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/input_files/single.norm.fq /home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/input_files/reads-norm.fq
+ln -s $PWDHERE/input_files/single.norm.fq $PWDHERE/input_files/reads-norm.fq

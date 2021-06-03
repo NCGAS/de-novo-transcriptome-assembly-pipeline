@@ -13,13 +13,13 @@
 #SBATCH --time=12:00:00 
 
 #set wd
-cd /home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/TransAbyss
 source ../setup_files/path_set 
+cd $PWDHERE/TransAbyss
 
-export PATH=/home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/software/TransABySS:$PATH
+export PATH=$PWDHERE/software/TransABySS:$PATH
 
 #run
-reads=/home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/input_files/reads-norm.fq
+reads=$PWDHERE/input_files/reads-norm.fq
 OD=`pwd`
 
 transabyss -k 65 --se $reads --outdir $OD --name k65.transabyss.fa --threads 2 -c 12 &

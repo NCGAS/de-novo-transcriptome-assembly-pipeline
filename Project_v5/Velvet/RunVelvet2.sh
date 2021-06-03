@@ -13,13 +13,13 @@
 #SBATCH --time=03:00:00 
 
 ##Move to correct WD
-cd /home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/Velvet
 source ../setup_files/path_set 
+cd $PWDHERE/Velvet
 
-export PATH=/home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/software/Velvet:$PATH
+export PATH=$PWDHERE/software/Velvet:$PATH
 
 #input define
-reads=/home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/input_files/reads-norm.fq
+reads=$PWDHERE/input_files/reads-norm.fq
 
 ##run code
 velvetg oases.35 -read_trkg yes  &

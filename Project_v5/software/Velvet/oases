@@ -7,7 +7,7 @@ fi
 VERSION=0.2.09
 PACKAGE=oases
 TOOL=oases
-DIRECTORY=/home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/software/Velvet
+DIRECTORY=$PWDHERE/software/Velvet
 STORAGE=/home/ssanders
 
 OPTIONS=$OPTIONS" -B $STORAGE"

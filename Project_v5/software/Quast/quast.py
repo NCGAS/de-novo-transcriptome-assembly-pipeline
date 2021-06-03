@@ -7,7 +7,7 @@ fi
 VERSION=5.0.2
 PACKAGE=quast
 TOOL=quast.py
-DIRECTORY=/home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/software/Quast
+DIRECTORY=$PWDHERE/software/Quast
 STORAGE=/home/ssanders
 
 OPTIONS=$OPTIONS" -B $STORAGE"

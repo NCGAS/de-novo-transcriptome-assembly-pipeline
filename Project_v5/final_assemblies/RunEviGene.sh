@@ -12,10 +12,10 @@
 #SBATCH --mem=200gb
 #SBATCH --time=12:00:00 
 
-cd /home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/final_assemblies
 source ../setup_files/path_set 
+cd $PWDHERE/final_assemblies
 
-export PATH=/home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/software/EviGene/:$PATH
+export PATH=$PWDHERE/software/EviGene/:$PATH
 
 tr2aacds.pl -tidy -NCPU 3 -MAXMEM 131072 -log -cdna combined.fa
 

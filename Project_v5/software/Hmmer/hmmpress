@@ -7,7 +7,7 @@ fi
 VERSION=3.1b
 PACKAGE=hmmer
 TOOL=hmmpress
-DIRECTORY=/home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/software/Hmmer
+DIRECTORY=$PWDHERE/software/Hmmer
 STORAGE=/home/ssanders
 
 

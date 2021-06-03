@@ -7,7 +7,7 @@ fi
 VERSION=0.46.2
 PACKAGE=kallisto
 TOOL=kallisto
-DIRECTORY=/home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/software/Kallisto
+DIRECTORY=$PWDHERE/software/Kallisto
 STORAGE=/home/ssanders
 
 OPTIONS=$OPTIONS" -B $STORAGE"

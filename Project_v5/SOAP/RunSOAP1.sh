@@ -13,11 +13,11 @@
 #SBATCH --time=24:00:00
 
 ##Move to correct WD
-cd /home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/SOAP
 source ../setup_files/path_set
+cd $PWDHERE/SOAP
 
 ##load modules
-export PATH=/home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/software/SOAPdenovo:$PATH
+export PATH=$PWDHERE/software/SOAPdenovo:$PATH
 
 ##run code
 SOAPdenovo-Trans-127mer all -s config_file -K 35 -o output35 &

@@ -34,23 +34,23 @@ fi
 
 singcheck
 #assembly
-install TransABySS /home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/software/TransABySS/*.sif
-install SOAP /home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/software/SOAPdenovo/*.sif
-install Velvet /home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/software/Velvet/*.sif
-install Trinity /home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/software/Trinity/*.sif
-install EviGene /home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/software/EviGene/*.sif
+install TransABySS $PWDHERE/software/TransABySS/*.sif
+install SOAP $PWDHERE/software/SOAPdenovo/*.sif
+install Velvet $PWDHERE/software/Velvet/*.sif
+install Trinity $PWDHERE/software/Trinity/*.sif
+install EviGene $PWDHERE/software/EviGene/*.sif
 
 #annotation
-install Trinotate /home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/software/Trinotate/*.sif
-install Hmmer /home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/software/Hmmer/*.sif
-install BLAST /home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/software/Blast/*.sif
-install SignalP /home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/software/SignalP/*.sif
-install TmHmm /home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/software/TmHmm/*.sif
+install Trinotate $PWDHERE/software/Trinotate/*.sif
+install Hmmer $PWDHERE/software/Hmmer/*.sif
+install BLAST $PWDHERE/software/Blast/*.sif
+install SignalP $PWDHERE/software/SignalP/*.sif
+install TmHmm $PWDHERE/software/TmHmm/*.sif
 
 #QC
-install Quast /home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/software/Quast/*.sif
-install BUSCO /home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/software/BUSCO/*.sif
+install Quast $PWDHERE/software/Quast/*.sif
+install BUSCO $PWDHERE/software/BUSCO/*.sif
 
 #DE (also needs trinity)
-install Kallisto /home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/software/Kallisto/*.sif
+install Kallisto $PWDHERE/software/Kallisto/*.sif
 

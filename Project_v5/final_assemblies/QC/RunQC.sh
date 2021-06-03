@@ -12,7 +12,7 @@
 #SBATCH --time=12:00:00 
 
 source ../../setup_files/path_set 
-cd /home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/final_assemblies/QC
+cd $PWDHERE/final_assemblies/QC
 
 #This is a means by which to check the different metrics for each of your 
 #subassemblies, as well as your main assembly. Sometimes the CDTA will not be 

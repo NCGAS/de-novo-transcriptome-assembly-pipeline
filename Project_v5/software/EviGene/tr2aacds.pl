@@ -7,7 +7,7 @@ fi
 VERSION=14dec30
 PACKAGE=evigene
 TOOL=/usr/local/evigene14dec30/scripts/prot/tr2aacds.pl
-DIRECTORY=/home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/software/EviGene
+DIRECTORY=$PWDHERE/software/EviGene
 STORAGE=/home/ssanders
 
 OPTIONS=$OPTIONS" -B $STORAGE"
