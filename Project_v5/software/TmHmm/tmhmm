@@ -7,8 +7,8 @@ fi
 VERSION=2.0c
 PACKAGE=tmhmm
 TOOL="perl /usr/local/tmhmm-2.0c/bin/tmhmm"
-DIRECTORY=PWDHERE/software/TmHmm
-STORAGE=/N/home,/N/project,/N/slate
+DIRECTORY=/home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/software/TmHmm
+STORAGE=/home/ssanders
 
 OPTIONS=$OPTIONS" -B $STORAGE"
 

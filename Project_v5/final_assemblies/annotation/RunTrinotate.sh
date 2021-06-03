@@ -5,20 +5,22 @@
 #SBATCH -o Trinotate_%j.log
 #SBATCH -e Trinotate_%j.err 
 #SBATCH --mail-type=FAIL,BEGIN,END 
-#SBATCH --mail-user=
+#SBATCH --mail-user=ss93@iu.edu
 #SBATCH --nodes=1 
 #SBATCH --ntasks-per-node=16
 #SBATCH --mem=100gb
 #SBATCH --time=72:00:00 
 
 ##Move to correct WD
-cd PWDHERE/final_assemblies/annotation
+source ../../setup_files/path_set
 
-export PATH=PWDHERE/software/Trinotate:$PATH
-export PATH=PWDHERE/software/Blast:$PATH
-export PATH=PWDHERE/software/SignalP:$PATH
-export PATH=PWDHERE/software/TmHmm:$PATH
-export PATH=PWDHERE/software/Hmmer:$PATH
+cd /home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/final_assemblies/annotation
+
+export PATH=$PWDHERE/software/Trinotate:$PATH
+export PATH=$PWDHERE/software/Blast:$PATH
+export PATH=$PWDHERE/software/SignalP:$PATH
+export PATH=$PWDHERE/software/TmHmm:$PATH
+export PATH=$PWDHERE/software/Hmmer:$PATH
 export TRINOTATEDB="."
 
 makeblastdb -in uniprot_sprot.pep -dbtype prot

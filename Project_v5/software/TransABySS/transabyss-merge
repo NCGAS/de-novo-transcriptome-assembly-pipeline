@@ -7,8 +7,8 @@ fi
 VERSION=2.0.1
 PACKAGE=transabyss
 TOOL=transabyss-merge
-DIRECTORY=PWDHERE/software/TransABySS
-STORAGE=/N/slate,/N/project,/N/u
+DIRECTORY=/home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/software/TransABySS
+STORAGE=/home/ssanders
 
 OPTIONS=$OPTIONS" -B $STORAGE"
 

@@ -7,8 +7,8 @@ fi
 VERSION=5.1.3
 PACKAGE=busco
 TOOL=busco
-DIRECTORY=PWDHERE/software/BUSCO
-STORAGE=/N/home,/N/slate,/N/project
+DIRECTORY=/home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/software/BUSCO
+STORAGE=/home/ssanders
 
 OPTIONS=$OPTIONS" -B $STORAGE"
 

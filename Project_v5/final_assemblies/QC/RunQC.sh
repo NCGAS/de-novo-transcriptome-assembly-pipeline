@@ -5,13 +5,14 @@
 #SBATCH -o QC_%j.log
 #SBATCH -e QC_%j.err 
 #SBATCH --mail-type=FAIL,BEGIN,END 
-#SBATCH --mail-user=
+#SBATCH --mail-user=ss93@iu.edu
 #SBATCH --nodes=1 
 #SBATCH --ntasks-per-node=1
 #SBATCH --mem=10gb
 #SBATCH --time=12:00:00 
 
-cd PWDHERE/final_assemblies/QC
+source ../../setup_files/path_set 
+cd /home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/final_assemblies/QC
 
 #This is a means by which to check the different metrics for each of your 
 #subassemblies, as well as your main assembly. Sometimes the CDTA will not be 
@@ -34,19 +35,19 @@ ln -s ../annotation/transcripts.main.fa .
 ln -s ../okayset/combined.okay.fa .
 
 #2) Make script to run BUSCO on all - Needs TESTING
-export PATH="PWDHERE/software/BUSCO/:$PATH"
-
-for f in *fa; do run_BUSCO.py -i $f -o ${f%fa}busco -l /N/soft/rhel7/busco/3.0.2/busco-lineage/eukaryota_odb9 -m tran; done
+export PATH="$PWDHERE/software/BUSCO/:$PATH"
+echo $PATH
+for f in *fa; do busco -i $f -o ${f%fa}busco -l eukaryota_odb10 -m tran; done
 
 #3) Make script to run quast on all - DONE
-export PATH="PWDHERE/software/QUAST/:$PATH"
-for f in *.fa; do quast.py -o ${f%fa}quast $f; done
+export PATH="$PWDHERE/software/Quast/:$PATH"
+#for f in *.fa; do quast.py -o ${f%fa}quast $f; done
 
 #4) Make script to combine into a table
 #print names and busco
 echo "Assembly Complete_BUSCOs_(C) Complete_and_single-copy_BUSCOs_(S) Complete_and_duplicated_BUSCOs_(D) Fragmented_BUSCOs_(F) Missing_BUSCOs_(M) Total_BUSCO_groups_searched">BUSCO.table
 
-for f in *.busco/short_summary_*; do tail -n 10 $f | head -n 6 | awk -v f=${f%.busco/short_summary_*} 'BEGIN{ORS=" ";print f}{print $1}END{printf "\n"}' ; done >> BUSCO.table
+for f in *.busco/short_summary*; do tail -n 10 $f | head -n 6 | awk -v f=${f%.busco/short_summary*} 'BEGIN{ORS=" ";print f}{print $1}END{printf "\n"}' ; done >> BUSCO.table
 
 sed -i 's/run_//g' BUSCO.table
 sed -i 's/fa-final/fa_final/g' BUSCO.table

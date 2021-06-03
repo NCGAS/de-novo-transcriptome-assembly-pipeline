@@ -7,8 +7,8 @@ fi
 VERSION=1.2.10
 PACKAGE=velvet
 TOOL=velveth
-DIRECTORY=PWDHERE/software/Velvet
-STORAGE=/N/slate,/N/project,/N/u
+DIRECTORY=/home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/software/Velvet
+STORAGE=/home/ssanders
 
 OPTIONS=$OPTIONS" -B $STORAGE"
 

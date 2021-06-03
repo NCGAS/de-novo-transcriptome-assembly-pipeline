@@ -7,8 +7,8 @@ fi
 VERSION=3.2.1
 PACKAGE=trinotate
 TOOL=Trinotate
-DIRECTORY=PWDHERE/software/Trinotate
-STORAGE=/N/slate,/N/home,/N/project
+DIRECTORY=/home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/software/Trinotate
+STORAGE=/home/ssanders
 
 OPTIONS=$OPTIONS" -B $STORAGE"
 

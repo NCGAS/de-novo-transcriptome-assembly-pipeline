@@ -5,7 +5,7 @@
 #SBATCH -o TransAb1b_%j.log
 #SBATCH -e TransAb1b_%j.err 
 #SBATCH --mail-type=FAIL,END,BEGIN
-#SBATCH --mail-user=
+#SBATCH --mail-user=ss93@iu.edu
 #SBATCH --nodes=1 
 #SBATCH --ntasks-per-node=3
 #SBATCH --cpus-per-task=2
@@ -13,12 +13,13 @@
 #SBATCH --time=12:00:00 
 
 #set wd
-cd PWDHERE/TransAbyss
+cd /home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/TransAbyss
+source ../setup_files/path_set 
 
-export PATH=PWDHERE/software/TransABySS:$PATH
+export PATH=/home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/software/TransABySS:$PATH
 
 #run
-reads=PWDHERE/input_files/reads-norm.fq
+reads=/home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/input_files/reads-norm.fq
 OD=`pwd`
 
 transabyss -k 65 --se $reads --outdir $OD --name k65.transabyss.fa --threads 2 -c 12 &

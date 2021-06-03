@@ -7,8 +7,8 @@ fi
 VERSION=1.04
 PACKAGE=soapdenovotrans
 TOOL=SOAPdenovo-Trans-127mer
-DIRECTORY=PWDHERE/software/SOAPdenovo
-STORAGE=/N/slate,/N/project,/N/u
+DIRECTORY=/home/ssanders/Documents/de-novo-transcriptome-assembly-pipeline/Project_v5/software/SOAPdenovo
+STORAGE=/home/ssanders
 
 OPTIONS=$OPTIONS" -B $STORAGE"
 
