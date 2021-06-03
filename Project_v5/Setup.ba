@@ -37,7 +37,7 @@ h) echo "The options are as follows"
 r) READLEN=${OPTARG};;
 i) INSERT=${OPTARG};;
 c) cat ./setup_files/citations; exit 0;;
-d) bash ./setup_files/install_software.sh; exit 0;;
+d) INSTALL=1;
 esac
 done
 
@@ -45,10 +45,14 @@ done
 echo "Note: this may take a few minutes"
 
 #Handle EMAIL and PWD set up
+if [ $INSTALL = 1 ]; then
+    p=`pwd`
+    sed -i "s|PWDHERE=|PWDHERE=$p|g" ./setup_files/path_set
+    bash ./setup_files/install_software.sh
+fi
+
 for f in */Run*; do sed -i "s/#SBATCH --mail-user=.*/#SBATCH --mail-user=$EMAIL/g" $f 2>tmp1; done
 for f in final_assemblies/*/Run*; do sed -i "s/#SBATCH --mail-user=.*/#SBATCH --mail-user=$EMAIL/g" $f 2>tmp1; done
-p=`pwd`
-echo "PWDHERE=$p" > ./setup_files/path_set
 for f in software/*/*; do sed -i "s|^STORAGE=.*|STORAGE=$STORAGE|g" $f; done
 
 rm tmp1
