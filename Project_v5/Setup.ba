@@ -16,9 +16,10 @@ fi
 READLEN=150
 INSERT=400
 STORAGE="/N/home/,/N/slate,/N/project"
+STRAND="single"
 
 while getopts b:e:s:r:i:hcd option
-do 
+do
 case "${option}"
 in
 b) STORAGE=${OPTARG};;
@@ -47,13 +48,13 @@ echo "Note: this may take a few minutes"
 #Handle EMAIL and PWD set up
 if [ $INSTALL = 1 ]; then
     p=`pwd`
-    sed -i "s|PWDHERE=|PWDHERE=$p|g" ./setup_files/path_set
+    sed -i "s|PWDHERE=.*|PWDHERE=$p|g" ./setup_files/path_set
     bash ./setup_files/install_software.sh
 fi
 
 for f in */Run*; do sed -i "s/#SBATCH --mail-user=.*/#SBATCH --mail-user=$EMAIL/g" $f 2>tmp1; done
 for f in final_assemblies/*/Run*; do sed -i "s/#SBATCH --mail-user=.*/#SBATCH --mail-user=$EMAIL/g" $f 2>tmp1; done
-for f in software/*/*; do sed -i "s|^STORAGE=.*|STORAGE=$STORAGE|g" $f; done
+for f in software/*/*[^sif]; do sed -i "s|^STORAGE=.*|STORAGE=$STORAGE|g" $f; done
 
 rm tmp1
 
@@ -62,11 +63,12 @@ sed -i -e "s/max_rd_len=[0-9]*/max_rd_len=$READLEN/g" -e "s/rd_len_cutof=[0-9]*/
 
 #Handle STRAND set up and INSERT if paired
 #Default is "paired"
-  if [ "$STRAND" == "paired" ]; then
+echo $STRAND
+  if [ "$STRAND" = "paired" ]; then
     if [ -f ./setup_files/paired.set ]; then sed -i "s/avg_ins=[0-9]*/avg_ins=$INSERT/g" SOAP/config_file; sed -i "s/ins_length [0-9]*/ins_length $INSERT/g" Velvet/RunVelvet2*
     else touch ./setup_files/paired.set && rm ./setup_files/single.set && patch -Rsp1 < ./setup_files/single2paired; sed -i "s/avg_ins=[0-9]*/avg_ins=$INSERT/g" SOAP/config_file; sed -i "s/ins_length [0-9]*/ins_length $INSERT/g" Velvet/RunVelvet2*
     fi
-  elif [ "$STRAND" == "single" ]; then 
+  elif [ "$STRAND" = "single" ]; then 
     if [ -f ./setup_files/single.set ]; then :
     else touch ./setup_files/single.set && rm ./setup_files/paired.set && patch -Rsp1 < ./setup_files/paired2single
     fi
@@ -78,4 +80,4 @@ sed -i -e "s/max_rd_len=[0-9]*/max_rd_len=$READLEN/g" -e "s/rd_len_cutof=[0-9]*/
 
 echo "Email set to $EMAIL"
 echo "Strand set to $STRAND"
-echo "Project Location set to $p - please note this only works the first time"
+echo "Project Location set to $p"
