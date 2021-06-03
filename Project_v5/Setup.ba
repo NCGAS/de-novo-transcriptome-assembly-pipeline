@@ -45,13 +45,12 @@ done
 echo "Note: this may take a few minutes"
 
 #Handle EMAIL and PWD set up
+p=`pwd`
+sed -i "s|PWDHERE=.*|PWDHERE=${p}|g" ./setup_files/path_set
+sed -i "s|q=.*|q=${p}/input_files/reads-norm.fq|g" ./SOAP/config_file
+
 if [ $INSTALL = 1 ]; then
-    p=`pwd`
-    sed -i "s|PWDHERE=.*|PWDHERE=$p|g" ./setup_files/path_set
     bash ./setup_files/install_software.sh
-#    head -n 1 ./SOAP/config_file > tmp1
-#    echo "q=${p}/input_files/reads.norm.fq" >> ./SOAP/config_file
-    sed -i "s|q=.*|q=${p}/input_files/reads.norm.fq" ./SOAP/config_file
 fi
 
 for f in */Run*; do sed -i "s/#SBATCH --mail-user=.*/#SBATCH --mail-user=$EMAIL/g" $f 2>tmp1; done
