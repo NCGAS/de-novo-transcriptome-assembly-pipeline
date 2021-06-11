@@ -10,6 +10,7 @@ sudo tar -C /usr/local -xzf /tmp/go${VERSION}.${OS}-${ARCH}.tar.gz
 
 echo 'export GOPATH=${HOME}/go' >> ~/.bashrc && \
 echo 'export PATH=/usr/local/go/bin:${PATH}:${GOPATH}/bin' >> ~/.bashrc && \
+export PATH=/usr/local/go/bin:${PATH}:${GOPATH}/bin
 source ~/.bashrc
 
 curl -sfL https://install.goreleaser.com/github.com/golangci/golangci-lint.sh | sh -s -- -b $(go env GOPATH)/bin v1.21.0
