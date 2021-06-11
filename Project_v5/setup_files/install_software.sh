@@ -26,7 +26,7 @@ echo "Looking for Singularity"
 if [ ! $(command -v singularity) ]; then
         if [ ! $(command -v module load singularity) ]
         then
-		sudo su -c 'bash $PWDHERE/setup_files/install_singularity.sh'
+		sudo su -c 'bash ./setup_files/install_singularity.sh'
         else
                module load singularity
         fi
