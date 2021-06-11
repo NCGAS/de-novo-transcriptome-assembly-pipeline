@@ -55,7 +55,7 @@ fi
 
 for f in */Run*; do sed -i "s/#SBATCH --mail-user=.*/#SBATCH --mail-user=$EMAIL/g" $f 2>tmp1; done
 for f in final_assemblies/*/Run*; do sed -i "s/#SBATCH --mail-user=.*/#SBATCH --mail-user=$EMAIL/g" $f 2>tmp1; done
-for f in software/*/*[^sif]; do sed -i "s|^STORAGE=.*|STORAGE=$STORAGE|g" $f; done
+for f in software/*/*[^sif]; do sed -i "s|STORAGE=.*|STORAGE=$STORAGE|g" $f; done
 
 rm tmp1
 
