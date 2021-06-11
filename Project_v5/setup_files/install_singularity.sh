@@ -1,6 +1,5 @@
 sudo apt-get update && \
-sudo apt-get install -y build-essential \
-libseccomp-dev pkg-config squashfs-tools cryptsetup
+sudo apt-get install -y build-essential libseccomp-dev pkg-config squashfs-tools cryptsetup
 
 #sudo rm -r /usr/local/go
 
@@ -13,8 +12,7 @@ echo 'export GOPATH=${HOME}/go' >> ~/.bashrc && \
 echo 'export PATH=/usr/local/go/bin:${PATH}:${GOPATH}/bin' >> ~/.bashrc && \
 source ~/.bashrc
 
-curl -sfL https://install.goreleaser.com/github.com/golangci/golangci-lint.sh |
-sh -s -- -b $(go env GOPATH)/bin v1.21.0
+curl -sfL https://install.goreleaser.com/github.com/golangci/golangci-lint.sh | sh -s -- -b $(go env GOPATH)/bin v1.21.0
 
 mkdir -p ${GOPATH}/src/github.com/sylabs && \
 cd ${GOPATH}/src/github.com/sylabs && \
