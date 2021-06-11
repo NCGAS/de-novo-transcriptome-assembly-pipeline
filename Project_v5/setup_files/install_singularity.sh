@@ -2,7 +2,7 @@ sudo apt-get update && \
 sudo apt-get install -y build-essential \
 libseccomp-dev pkg-config squashfs-tools cryptsetup
 
-sudo rm -r /usr/local/go
+#sudo rm -r /usr/local/go
 
 export VERSION=1.13.15 OS=linux ARCH=amd64  # change this as you need
 
