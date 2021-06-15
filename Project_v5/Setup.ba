@@ -42,7 +42,7 @@ esac
 done
 
 #Message out
-echo "Note: this may take a few minutes"
+echo "Note: this may take a while, especially if you are installing the software with the -d option.  Please be patient."
 
 #Handle EMAIL and PWD set up
 p=`pwd`
