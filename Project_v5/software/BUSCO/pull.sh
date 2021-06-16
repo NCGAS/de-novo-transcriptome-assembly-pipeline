@@ -4,5 +4,5 @@ if [ ! $(command -v singularity) ]; then
 	module load singularity
 fi
 
-singularity pull docker://ezlabgva/busco:v5.1.3_cv1
-mv -v busco*.sif singularity-busco-5.1.3.sif
+singularity pull https://depot.galaxyproject.org/singularity/busco:5.1.3--pyhdf>
+mv -v busco:* singularity-busco-5.1.3.sif
