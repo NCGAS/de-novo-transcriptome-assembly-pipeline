@@ -40,7 +40,7 @@ for f in *fa; do busco -i $f -o ${f%fa}busco -l eukaryota_odb10 -m tran; done
 
 #3) Make script to run quast on all - DONE
 export PATH="$PWDHERE/software/Quast/:$PATH"
-#for f in *.fa; do quast.py -o ${f%fa}quast $f; done
+for f in *.fa; do quast.py -o ${f%fa}quast $f; done
 
 #4) Make script to combine into a table
 #print names and busco
