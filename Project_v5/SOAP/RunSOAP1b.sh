@@ -17,7 +17,7 @@ source ../setup_files/path_set
 cd $PWDHERE/SOAP/
 
 ##load modules
-export PATH=$PWDHERE/software/SOAPdenovo:$PATH
+export PATH=$PATH:$PWDHERE/software/SOAPdenovo
 
 ##run code
 SOAPdenovo-Trans-127mer all -s config_file -K 65 -o output65 &
