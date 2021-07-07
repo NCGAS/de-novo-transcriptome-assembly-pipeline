@@ -16,7 +16,7 @@
 source ../setup_files/path_set 
 cd $PWDHERE/TransAbyss
 
-export PATH=$PWDHERE/software/TransABySS:$PATH
+export PATH=$PATH:$PWDHERE/software/TransABySS
 
 #run
 reads=$PWDHERE/input_files/reads-norm.fq
