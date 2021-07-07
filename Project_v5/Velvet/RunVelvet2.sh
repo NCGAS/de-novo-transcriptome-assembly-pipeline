@@ -16,7 +16,7 @@
 source ../setup_files/path_set 
 cd $PWDHERE/Velvet
 
-export PATH=$PWDHERE/software/Velvet:$PATH
+export PATH=$PATH:$PWDHERE/software/Velvet
 
 #input define
 reads=$PWDHERE/input_files/reads-norm.fq
