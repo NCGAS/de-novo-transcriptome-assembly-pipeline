@@ -15,8 +15,8 @@ esac
 done
 
 source ../../setup_files/path_set 
-export PATH=$PWDHERE/software/Trinotate:$PATH
-export PATH=$PWDHERE/software/Hmmer:$PATH
+export PATH=$PATH:$PWDHERE/software/Trinotate
+export PATH=$PATH:$PWDHERE/software/Hmmer
 
 cd $PWDHERE/final_assemblies/annotation
 
