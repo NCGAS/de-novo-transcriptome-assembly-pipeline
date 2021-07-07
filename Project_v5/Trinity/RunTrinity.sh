@@ -15,7 +15,7 @@
 source ../setup_files/path_set
 cd $PWDHERE/Trinity
 
-export PATH=$PWDHERE/software/Trinity:$PATH
+export PATH=$PATH:$PWDHERE/software/Trinity
 
 export reads=$PWDHERE/input_files/reads-norm.fq
 
