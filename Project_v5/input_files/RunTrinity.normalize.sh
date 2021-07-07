@@ -13,7 +13,7 @@
 
 source ../setup_files/path_set 
 
-export PATH=$PWDHERE/software/Trinity:$PATH
+export PATH=$PATH:$PWDHERE/software/Trinity
 
 cd $PWDHERE/input_files
 
