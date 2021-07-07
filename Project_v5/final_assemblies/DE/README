@@ -5,8 +5,8 @@
 #load modules
 source ../../setup_files/path_set 
 
-export PATH=$PWDHERE/software/Trinity:$PATH
-export PATH=$PWDHERE/software/Kallisto:$PATH
+export PATH=$PATH:$PWDHERE/software/Trinity
+export PATH=$PATH:$PWDHERE/software/Kallisto
 
 #make an index of the transcriptome with kallisto
 cp ../okayset/combined.okay.fa .
