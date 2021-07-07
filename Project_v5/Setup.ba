@@ -27,6 +27,7 @@ e) EMAIL=${OPTARG};;
 s) STRAND=${OPTARG};;
 h) echo "The options are as follows"
    echo "   -e:  sets your email for job handler, allowing you to know when your jobs are running, stopped, or complete.  This is also the email errors will be emailed to."
+   echo "   -q:  sets your queue for job handler (default: general)"
    echo "   -s:  sets your analysis to either single or paired reads, adjusting all needed scripts to allow this."
    echo "   -i:  sets your insert length (use for paired reads only, default is 400)"
    echo "   -r:  sets your read length (default is 150bp)"
