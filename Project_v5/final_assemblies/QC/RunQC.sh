@@ -35,11 +35,11 @@ ln -s ../annotation/transcripts.main.fa .
 ln -s ../okayset/combined.okay.fa .
 
 #2) Make script to run BUSCO on all - Needs TESTING
-export PATH="$PWDHERE/software/BUSCO/:$PATH"
+export PATH="$PATH:$PWDHERE/software/BUSCO/"
 for f in *fa; do busco -i $f -o ${f%fa}busco -l eukaryota_odb10 -m tran; done
 
 #3) Make script to run quast on all - DONE
-export PATH="$PWDHERE/software/Quast/:$PATH"
+export PATH="$PATH:$PWDHERE/software/Quast/"
 for f in *.fa; do quast.py -o ${f%fa}quast $f; done
 
 #4) Make script to combine into a table
