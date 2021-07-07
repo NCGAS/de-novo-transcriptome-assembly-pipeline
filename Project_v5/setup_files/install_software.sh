@@ -7,11 +7,14 @@ function install {
 SIF="$2"
 FILE="${2%\**}"
 PROG="$1"
+COMMAND="$3"
 
 echo "Looking for $PROG..."
 
 if [ -f "$SIF" ]; then
      echo "...${SIF#*/} already here!"
+elif [[ $(which $COMMAND) ]]; then
+     echo "...Program found in PATH, skipping installation!"
 else
      echo "...Not found, installing from: $FILE/pull.sh"
      cd $FILE
@@ -35,23 +38,23 @@ fi
 
 singcheck
 #assembly
-install TransABySS $PWDHERE/software/TransABySS/*.sif
-install SOAP $PWDHERE/software/SOAPdenovo/*.sif
-install Velvet $PWDHERE/software/Velvet/*.sif
-install Trinity $PWDHERE/software/Trinity/*.sif
-install EviGene $PWDHERE/software/EviGene/*.sif
+install TransABySS $PWDHERE/software/TransABySS/*.sif transabyss
+install SOAP $PWDHERE/software/SOAPdenovo/*.sif SOAPdenovo-Trans-127mer
+install Velvet $PWDHERE/software/Velvet/*.sif velvetg
+install Trinity $PWDHERE/software/Trinity/*.sif Trinity
+install EviGene $PWDHERE/software/EviGene/*.sif tr2aacds.pl
 
 #annotation
-install Trinotate $PWDHERE/software/Trinotate/*.sif
-install Hmmer $PWDHERE/software/Hmmer/*.sif
-install BLAST $PWDHERE/software/Blast/*.sif
-install SignalP $PWDHERE/software/SignalP/*.sif
-install TmHmm $PWDHERE/software/TmHmm/*.sif
+install Trinotate $PWDHERE/software/Trinotate/*.sif Trinotate
+install Hmmer $PWDHERE/software/Hmmer/*.sif hmmscan
+install BLAST $PWDHERE/software/Blast/*.sif blastn
+install SignalP $PWDHERE/software/SignalP/*.sif signalp
+install TmHmm $PWDHERE/software/TmHmm/*.sif tmhmm
 
 #QC
-install Quast $PWDHERE/software/Quast/*.sif
-install BUSCO $PWDHERE/software/BUSCO/*.sif
+install Quast $PWDHERE/software/Quast/*.sif quast.py
+install BUSCO $PWDHERE/software/BUSCO/*.sif busco
 
 #DE (also needs trinity)
-install Kallisto $PWDHERE/software/Kallisto/*.sif
+install Kallisto $PWDHERE/software/Kallisto/*.sif kallisto
 

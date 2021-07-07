@@ -16,8 +16,9 @@ fi
 READLEN=150
 INSERT=400
 STORAGE="/N/home/,/N/slate,/N/project"
+QUEUE="general"
 
-while getopts b:e:s:r:i:hcd option
+while getopts b:e:s:r:i:q:hcd option
 do
 case "${option}"
 in
@@ -37,6 +38,7 @@ h) echo "The options are as follows"
 r) READLEN=${OPTARG};;
 i) INSERT=${OPTARG};;
 c) cat ./setup_files/citations; exit 0;;
+q) QUEUE=${OPTARG};;
 d) INSTALL=1;
 esac
 done
@@ -51,6 +53,10 @@ sed -i "s|q=.*|q=${p}/input_files/reads-norm.fq|g" ./SOAP/config_file
 
 for f in */Run*; do sed -i "s/#SBATCH --mail-user=.*/#SBATCH --mail-user=$EMAIL/g" $f 2>tmp1; done
 for f in final_assemblies/*/Run*; do sed -i "s/#SBATCH --mail-user=.*/#SBATCH --mail-user=$EMAIL/g" $f 2>tmp1; done
+
+for f in */Run*; do sed -i "s/#SBATCH -p .*/#SBATCH -p $QUEUE/g" $f 2>tmp1; done
+for f in final_assemblies/*/Run*; do sed -i "s/#SBATCH -p .*/#SBATCH -p $QUEUE/g" $f 2>tmp1; done
+
 for f in software/*/*; do sed -i "s|STORAGE=.*|STORAGE=$STORAGE|g" $f; done
 
 if [ $INSTALL = 1 ]; then
