@@ -16,11 +16,11 @@ source ../../setup_files/path_set
 
 cd $PWDHERE/final_assemblies/annotation
 
-export PATH=$PWDHERE/software/Trinotate:$PATH
-export PATH=$PWDHERE/software/Blast:$PATH
-export PATH=$PWDHERE/software/SignalP:$PATH
-export PATH=$PWDHERE/software/TmHmm:$PATH
-export PATH=$PWDHERE/software/Hmmer:$PATH
+export PATH=$PATH:$PWDHERE/software/Trinotate
+export PATH=$PATH:$PWDHERE/software/Blast
+export PATH=$PATH:$PWDHERE/software/SignalP
+export PATH=$PATH:$PWDHERE/software/TmHmm
+export PATH=$PATH:$PWDHERE/software/Hmmer
 export TRINOTATEDB="."
 
 makeblastdb -in uniprot_sprot.pep -dbtype prot
