@@ -15,7 +15,7 @@
 source ../setup_files/path_set 
 cd $PWDHERE/final_assemblies
 
-export PATH=$PWDHERE/software/EviGene/:$PATH
+export PATH=$PATH:$PWDHERE/software/EviGene/
 
 tr2aacds.pl -tidy -NCPU 3 -MAXMEM 131072 -log -cdna combined.fa
 
