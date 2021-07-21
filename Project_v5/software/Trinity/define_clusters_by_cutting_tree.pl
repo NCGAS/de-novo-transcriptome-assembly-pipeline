@@ -10,7 +10,7 @@ VERSION=2.11.0
 PACKAGE=Trinity
 TOOL=/usr/local/bin/trinityrnaseq/Analysis/DifferentialExpression/define_clusters_by_cutting_tree.pl
 DIRECTORY=$PWDHERE/software/Trinity
-STORAGE=/home/ssanders
+STORAGE=
 
 OPTIONS=$OPTIONS" -B $STORAGE"
 
