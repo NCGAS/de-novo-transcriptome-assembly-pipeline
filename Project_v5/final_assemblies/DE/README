@@ -46,10 +46,10 @@ bash adjust_matrix.sh
 #nano samples_described
 
 #run DE, in this case using edgeR (due to lack of three replicates)
-run_DE_analysis.pl --matrix matrix --method DESeq2 --samples_file samples_described
+run_DE_analysis.pl --matrix matrix --method edgeR --samples_file samples_described
 
 #run DE analyses (in this case using p=.5 due to the fact this was based on a toy data set with no DE
-cd DESeq2.*/
+cd edgeR.*/
 analyze_diff_expr.pl --matrix ../matrix -P 5e-2 -C 2 --sample ../samples_described
 
 #run clustering
