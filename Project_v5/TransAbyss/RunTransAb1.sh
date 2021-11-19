@@ -1,7 +1,7 @@
 #!/bin/bash 
 
 #SBATCH -J TransAb1                                    
-#SBATCH -p trinity
+#SBATCH -p general
 #SBATCH -o TransAb1_%j.log
 #SBATCH -e TransAb1_%j.err 
 #SBATCH --mail-type=FAIL,BEGIN,END

@@ -1,7 +1,7 @@
 #!/bin/bash 
 
 #SBATCH -J RunSOAP1b                                   
-#SBATCH -p trinity
+#SBATCH -p general
 #SBATCH -o SOAP1b_%j.log
 #SBATCH -e SOAP1b_%j.err 
 #SBATCH --mail-type=FAIL,BEGIN,END 

@@ -1,7 +1,7 @@
 #!/bin/bash 
 
 #SBATCH -J RunVelvet1                                   
-#SBATCH -p trinity
+#SBATCH -p general
 #SBATCH -o Velvet1_%j.log
 #SBATCH -e Velvet1_%j.err 
 #SBATCH --mail-type=FAIL,BEGIN,END 

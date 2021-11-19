@@ -17,6 +17,7 @@ READLEN=150
 INSERT=400
 STORAGE="/N/home/,/N/slate,/N/project"
 QUEUE="general"
+INSTALL=0
 
 while getopts b:e:s:r:i:q:hcd option
 do
@@ -28,7 +29,7 @@ s) STRAND=${OPTARG};;
 h) echo "The options are as follows"
    echo "   -e:  sets your email for job handler, allowing you to know when your jobs are running, stopped, or complete.  This is also the email errors will be emailed to."
    echo "   -q:  sets your queue for job handler (default: general)"
-   echo "   -s:  sets your analysis to either single or paired reads, adjusting all needed scripts to allow this."
+   echo "   -s:  sets your analysis to either "single" or "paired" reads, adjusting all needed scripts to allow this. (default is single)"
    echo "   -i:  sets your insert length (use for paired reads only, default is 400)"
    echo "   -r:  sets your read length (default is 150bp)"
    echo "   -h:  prints this help menu"
@@ -46,6 +47,21 @@ done
 
 #Message out
 echo "Note: this may take a while, especially if you are installing the software with the -d option.  Please be patient."
+
+#Handle STRAND set up and INSERT if paired
+#Default is "single"
+  if [ "$STRAND" = "paired" ]; then
+    if [ -f ./setup_files/paired.set ]; then sed -i "s/avg_ins=[0-9]*/avg_ins=$INSERT/g" SOAP/config_file; sed -i "s/ins_length [0-9]*/ins_length $INSERT/g" Velvet/RunVelvet2*
+    else touch ./setup_files/paired.set && rm ./setup_files/single.set && patch -Rsp1 < ./setup_files/single2paired; sed -i "s/avg_ins=[0-9]*/avg_ins=$INSERT/g" SOAP/config_file; sed -i "s/ins_length [0-9]*/ins_length $INSERT/g" Velvet/RunVelvet2*
+    fi
+  elif [ "$STRAND" = "single" ]; then 
+    if [ -f ./setup_files/single.set ]; then :
+    else touch ./setup_files/single.set && rm ./setup_files/paired.set && patch -Rsp1 < ./setup_files/paired2single
+    fi
+  else
+    echo "Please select single or paired for the -s option"
+    exit 1
+  fi
 
 #Handle EMAIL and PWD set up
 p=`pwd`
@@ -68,22 +84,6 @@ rm tmp1
 
 #Handle Read Length
 sed -i -e "s/max_rd_len=[0-9]*/max_rd_len=$READLEN/g" -e "s/rd_len_cutof=[0-9]*/rd_len_cutof=$READLEN/g" SOAP/config_file
-
-#Handle STRAND set up and INSERT if paired
-#Default is "paired"
-  if [ "$STRAND" = "paired" ]; then
-    if [ -f ./setup_files/paired.set ]; then sed -i "s/avg_ins=[0-9]*/avg_ins=$INSERT/g" SOAP/config_file; sed -i "s/ins_length [0-9]*/ins_length $INSERT/g" Velvet/RunVelvet2*
-    else touch ./setup_files/paired.set && rm ./setup_files/single.set && patch -Rsp1 < ./setup_files/single2paired; sed -i "s/avg_ins=[0-9]*/avg_ins=$INSERT/g" SOAP/config_file; sed -i "s/ins_length [0-9]*/ins_length $INSERT/g" Velvet/RunVelvet2*
-    fi
-  elif [ "$STRAND" = "single" ]; then 
-    if [ -f ./setup_files/single.set ]; then :
-    else touch ./setup_files/single.set && rm ./setup_files/paired.set && patch -Rsp1 < ./setup_files/paired2single
-    fi
-  else
-    echo "Please select single or paired for the -s option"
-    exit 1
-  fi
-
 
 echo "Email set to $EMAIL"
 echo "Strand set to $STRAND"

@@ -1,7 +1,7 @@
 #!/bin/bash 
 
 #SBATCH -J RunEviGene                                 
-#SBATCH -p trinity
+#SBATCH -p general
 #SBATCH -o EviGene_%j.log
 #SBATCH -e EviGene_%j.err 
 #SBATCH --mail-type=FAIL,BEGIN,END 

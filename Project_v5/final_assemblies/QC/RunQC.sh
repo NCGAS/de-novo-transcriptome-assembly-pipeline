@@ -1,7 +1,7 @@
 #!/bin/bash 
 
 #SBATCH -J RunQC                                 
-#SBATCH -p trinity
+#SBATCH -p general
 #SBATCH -o QC_%j.log
 #SBATCH -e QC_%j.err 
 #SBATCH --mail-type=FAIL,BEGIN,END 

@@ -9,4 +9,6 @@ SOAP manual: https://github.com/aquaskyline/SOAPdenovo-Trans
 SOAP license: https://www.gnu.org/licenses/gpl-3.0-standalone.html
 
 
+NOTE: If you change from single to paired and back - your config file will have to be manually edited.  I'm working on a better way to do that, but currently, that's just the way it is ^_^.
+
 Thanks to Lijing Bu of CETI for pointing out the missing defaults here!

@@ -1,7 +1,7 @@
 #!/bin/bash 
 
 #SBATCH -J RunTrinotate                                 
-#SBATCH -p trinity
+#SBATCH -p general
 #SBATCH -o Trinotate_%j.log
 #SBATCH -e Trinotate_%j.err 
 #SBATCH --mail-type=FAIL,BEGIN,END 

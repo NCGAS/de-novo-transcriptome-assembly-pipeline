@@ -1,7 +1,7 @@
 #!/bin/bash 
 
 #SBATCH -J RunTrinity                                   
-#SBATCH -p trinity
+#SBATCH -p general
 #SBATCH -o Trinity_%j.log
 #SBATCH -e Trinity_%j.err 
 #SBATCH --mail-type=FAIL,BEGIN,END 

@@ -1,7 +1,7 @@
 #!/bin/bash 
 
 #SBATCH -J RunTrinityNorm                                 
-#SBATCH -p trinity
+#SBATCH -p general
 #SBATCH -o TrinityNorm_%j.log
 #SBATCH -e TrinityNorm_%j.err 
 #SBATCH --mail-type=FAIL
