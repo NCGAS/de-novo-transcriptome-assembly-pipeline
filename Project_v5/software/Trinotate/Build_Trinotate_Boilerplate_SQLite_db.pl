@@ -1,7 +1,5 @@
 #!/bin/bash
 
-source ../../setup_files/path_set
-
 if [ ! $(command -v singularity) ]; then
         module load singularity
 fi
