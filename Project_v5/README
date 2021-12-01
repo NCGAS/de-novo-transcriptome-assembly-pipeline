@@ -1,0 +1,20 @@
+Welcome!  This readme is under construction, however, some useful bits:
+
+1) The tutorial called Assembly Demo (2).pdf will guide you through how to use the workflow
+
+2) There is a video on the background of the workflow here: https://youtu.be/tKK8y5BNBFc
+
+Do note, this video is from our last in person workshop.  We've made some improvements since then!  Mainly, we have made this workflow 
+entirely portable.  All the software and dependencies are packaged as singularity containers that can be pulled as needed.  This eliminates 
+the need for us to make systems specific workflows for IU's Carbonate and XSEDE's Bridges.  It allows you to download the same code from 
+github and run it on your local academic cluster, Amazon web services, Google Cloud, Jetstream (like we will do here), or anywhere else you'd 
+like to - without having to individually install software or depend on it already being installed.  The Setup.ba script now sets that up for 
+you.  
+
+3) ./Setup.ba -h will give you a starting place to set up the workflow for your environment (also discussed in detail in the tutorial).
+
+4) Requirements for the workflow include:
+- You have enough resources to run the assemblies (RAM and storage, which will depends on your data)
+- The system has singularity and SLURM if you are on a cluster, or you have root access if you are on a cloud/virtual machine  
+
+If you have a different job handler, you can still edit the scripts to work, and we can help - this is made to be flexible!
